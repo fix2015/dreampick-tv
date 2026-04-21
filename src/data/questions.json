@@ -1,0 +1,2338 @@
+{
+  "categories": [
+    {
+      "id": "dream_bedroom",
+      "name": "Dream Bedroom",
+      "emoji": "\ud83d\udecf\ufe0f",
+      "questionCount": 6
+    },
+    {
+      "id": "dream_candy",
+      "name": "Dream Candy",
+      "emoji": "\ud83c\udf6c",
+      "questionCount": 8
+    },
+    {
+      "id": "dream_car",
+      "name": "Dream Car",
+      "emoji": "\ud83d\ude97",
+      "questionCount": 7
+    },
+    {
+      "id": "dream_pet",
+      "name": "Dream Pet",
+      "emoji": "\ud83d\udc3e",
+      "questionCount": 10
+    },
+    {
+      "id": "dream_robot",
+      "name": "Dream Robot",
+      "emoji": "\ud83e\udd16",
+      "questionCount": 8
+    },
+    {
+      "id": "dream_school",
+      "name": "Dream School",
+      "emoji": "\ud83c\udf92",
+      "questionCount": 7
+    },
+    {
+      "id": "dream_space",
+      "name": "Dream Space",
+      "emoji": "\ud83d\ude80",
+      "questionCount": 4
+    },
+    {
+      "id": "dream_superpower",
+      "name": "Dream Superpower",
+      "emoji": "\u26a1",
+      "questionCount": 4
+    },
+    {
+      "id": "dream_treehouse",
+      "name": "Dream Treehouse",
+      "emoji": "\ud83c\udf33",
+      "questionCount": 5
+    },
+    {
+      "id": "dream_vacation",
+      "name": "Dream Vacation",
+      "emoji": "\u2708\ufe0f",
+      "questionCount": 12
+    }
+  ],
+  "questions": [
+    {
+      "id": "dream_bedroom_0",
+      "categoryId": "dream_bedroom",
+      "prompt": "CHOOSE YOUR BED",
+      "slug": "choose_your_bed",
+      "images": [
+        "choose_your_bed/1.png",
+        "choose_your_bed/2.png",
+        "choose_your_bed/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_bed/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_bed/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_bed/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_bedroom_1",
+      "categoryId": "dream_bedroom",
+      "prompt": "CHOOSE YOUR GAMING SETUP",
+      "slug": "choose_your_gaming_setup",
+      "images": [
+        "choose_your_gaming_setup/1.png",
+        "choose_your_gaming_setup/2.png",
+        "choose_your_gaming_setup/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_gaming_setup/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_gaming_setup/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_gaming_setup/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_bedroom_2",
+      "categoryId": "dream_bedroom",
+      "prompt": "CHOOSE YOUR CLOSET",
+      "slug": "choose_your_closet",
+      "images": [
+        "choose_your_closet/1.png",
+        "choose_your_closet/2.png",
+        "choose_your_closet/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_closet/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_closet/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_closet/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_bedroom_3",
+      "categoryId": "dream_bedroom",
+      "prompt": "CHOOSE YOUR WINDOW VIEW",
+      "slug": "choose_your_window_view",
+      "images": [
+        "choose_your_window_view/1.png",
+        "choose_your_window_view/2.png",
+        "choose_your_window_view/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_window_view/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_window_view/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_window_view/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_bedroom_4",
+      "categoryId": "dream_bedroom",
+      "prompt": "CHOOSE YOUR CEILING",
+      "slug": "choose_your_ceiling",
+      "images": [
+        "choose_your_ceiling/1.png",
+        "choose_your_ceiling/2.png",
+        "choose_your_ceiling/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_ceiling/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_ceiling/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_ceiling/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_bedroom_5",
+      "categoryId": "dream_bedroom",
+      "prompt": "CHOOSE YOUR PET CORNER",
+      "slug": "choose_your_pet_corner",
+      "images": [
+        "choose_your_pet_corner/1.png",
+        "choose_your_pet_corner/2.png",
+        "choose_your_pet_corner/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_pet_corner/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_pet_corner/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_pet_corner/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_candy_0",
+      "categoryId": "dream_candy",
+      "prompt": "CHOOSE YOUR CHOCOLATE",
+      "slug": "choose_your_chocolate",
+      "images": [
+        "choose_your_chocolate/1.png",
+        "choose_your_chocolate/2.png",
+        "choose_your_chocolate/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_chocolate/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_chocolate/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_chocolate/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_candy_1",
+      "categoryId": "dream_candy",
+      "prompt": "CHOOSE YOUR ICE CREAM",
+      "slug": "choose_your_ice_cream",
+      "images": [
+        "choose_your_ice_cream/1.png",
+        "choose_your_ice_cream/2.png",
+        "choose_your_ice_cream/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_ice_cream/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_ice_cream/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_ice_cream/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_candy_2",
+      "categoryId": "dream_candy",
+      "prompt": "CHOOSE YOUR CAKE",
+      "slug": "choose_your_cake",
+      "images": [
+        "choose_your_cake/1.png",
+        "choose_your_cake/2.png",
+        "choose_your_cake/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_cake/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_cake/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_cake/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_candy_3",
+      "categoryId": "dream_candy",
+      "prompt": "CHOOSE YOUR CANDY SHOP",
+      "slug": "choose_your_candy_shop",
+      "images": [
+        "choose_your_candy_shop/1.png",
+        "choose_your_candy_shop/2.png",
+        "choose_your_candy_shop/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_candy_shop/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_candy_shop/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_candy_shop/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_candy_4",
+      "categoryId": "dream_candy",
+      "prompt": "CHOOSE YOUR DONUT",
+      "slug": "choose_your_donut",
+      "images": [
+        "choose_your_donut/1.png",
+        "choose_your_donut/2.png",
+        "choose_your_donut/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_donut/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_donut/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_donut/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_candy_5",
+      "categoryId": "dream_candy",
+      "prompt": "CHOOSE YOUR MILKSHAKE",
+      "slug": "choose_your_milkshake",
+      "images": [
+        "choose_your_milkshake/1.png",
+        "choose_your_milkshake/2.png",
+        "choose_your_milkshake/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_milkshake/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_milkshake/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_milkshake/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_candy_6",
+      "categoryId": "dream_candy",
+      "prompt": "CHOOSE YOUR LOLLIPOP",
+      "slug": "choose_your_lollipop",
+      "images": [
+        "choose_your_lollipop/1.png",
+        "choose_your_lollipop/2.png",
+        "choose_your_lollipop/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_lollipop/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_lollipop/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_lollipop/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_candy_7",
+      "categoryId": "dream_candy",
+      "prompt": "CHOOSE YOUR GUMMY BEARS",
+      "slug": "choose_your_gummy_bears",
+      "images": [
+        "choose_your_gummy_bears/1.png",
+        "choose_your_gummy_bears/2.png",
+        "choose_your_gummy_bears/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_gummy_bears/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_gummy_bears/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_gummy_bears/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_car_0",
+      "categoryId": "dream_car",
+      "prompt": "CHOOSE YOUR SUPERCAR",
+      "slug": "choose_your_supercar",
+      "images": [
+        "choose_your_supercar/1.png",
+        "choose_your_supercar/2.png",
+        "choose_your_supercar/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_supercar/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_supercar/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_supercar/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_car_1",
+      "categoryId": "dream_car",
+      "prompt": "CHOOSE YOUR OFF-ROAD",
+      "slug": "choose_your_off-road",
+      "images": [
+        "choose_your_off-road/1.png",
+        "choose_your_off-road/2.png",
+        "choose_your_off-road/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_off-road/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_off-road/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_off-road/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_car_2",
+      "categoryId": "dream_car",
+      "prompt": "CHOOSE YOUR VINTAGE CAR",
+      "slug": "choose_your_vintage_car",
+      "images": [
+        "choose_your_vintage_car/1.png",
+        "choose_your_vintage_car/2.png",
+        "choose_your_vintage_car/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_vintage_car/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_vintage_car/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_vintage_car/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_car_3",
+      "categoryId": "dream_car",
+      "prompt": "CHOOSE YOUR ELECTRIC CAR",
+      "slug": "choose_your_electric_car",
+      "images": [
+        "choose_your_electric_car/1.png",
+        "choose_your_electric_car/2.png",
+        "choose_your_electric_car/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_electric_car/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_electric_car/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_electric_car/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_car_4",
+      "categoryId": "dream_car",
+      "prompt": "CHOOSE YOUR MOTORCYCLE",
+      "slug": "choose_your_motorcycle",
+      "images": [
+        "choose_your_motorcycle/1.png",
+        "choose_your_motorcycle/2.png",
+        "choose_your_motorcycle/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_motorcycle/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_motorcycle/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_motorcycle/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_car_5",
+      "categoryId": "dream_car",
+      "prompt": "CHOOSE YOUR GARAGE",
+      "slug": "choose_your_garage",
+      "images": [
+        "choose_your_garage/1.png",
+        "choose_your_garage/2.png",
+        "choose_your_garage/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_garage/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_garage/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_garage/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_car_6",
+      "categoryId": "dream_car",
+      "prompt": "CHOOSE YOUR CAR COLOR",
+      "slug": "choose_your_car_color",
+      "images": [
+        "choose_your_car_color/1.png",
+        "choose_your_car_color/2.png",
+        "choose_your_car_color/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_car_color/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_car_color/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_car_color/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_pet_0",
+      "categoryId": "dream_pet",
+      "prompt": "CHOOSE YOUR PUPPY",
+      "slug": "choose_your_puppy",
+      "images": [
+        "choose_your_puppy/1.png",
+        "choose_your_puppy/2.png",
+        "choose_your_puppy/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_puppy/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_puppy/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_puppy/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_pet_1",
+      "categoryId": "dream_pet",
+      "prompt": "CHOOSE YOUR KITTEN",
+      "slug": "choose_your_kitten",
+      "images": [
+        "choose_your_kitten/1.png",
+        "choose_your_kitten/2.png",
+        "choose_your_kitten/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_kitten/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_kitten/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_kitten/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_pet_2",
+      "categoryId": "dream_pet",
+      "prompt": "CHOOSE YOUR EXOTIC PET",
+      "slug": "choose_your_exotic_pet",
+      "images": [
+        "choose_your_exotic_pet/1.png",
+        "choose_your_exotic_pet/2.png",
+        "choose_your_exotic_pet/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_exotic_pet/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_exotic_pet/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_exotic_pet/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_pet_3",
+      "categoryId": "dream_pet",
+      "prompt": "CHOOSE YOUR FISH TANK",
+      "slug": "choose_your_fish_tank",
+      "images": [
+        "choose_your_fish_tank/1.png",
+        "choose_your_fish_tank/2.png",
+        "choose_your_fish_tank/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_fish_tank/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_fish_tank/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_fish_tank/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_pet_4",
+      "categoryId": "dream_pet",
+      "prompt": "CHOOSE YOUR PET BED",
+      "slug": "choose_your_pet_bed",
+      "images": [
+        "choose_your_pet_bed/1.png",
+        "choose_your_pet_bed/2.png",
+        "choose_your_pet_bed/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_pet_bed/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_pet_bed/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_pet_bed/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_pet_5",
+      "categoryId": "dream_pet",
+      "prompt": "CHOOSE YOUR PET OUTFIT",
+      "slug": "choose_your_pet_outfit",
+      "images": [
+        "choose_your_pet_outfit/1.png",
+        "choose_your_pet_outfit/2.png",
+        "choose_your_pet_outfit/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_pet_outfit/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_pet_outfit/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_pet_outfit/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_pet_6",
+      "categoryId": "dream_pet",
+      "prompt": "CHOOSE YOUR HORSE",
+      "slug": "choose_your_horse",
+      "images": [
+        "choose_your_horse/1.png",
+        "choose_your_horse/2.png",
+        "choose_your_horse/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_horse/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_horse/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_horse/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_pet_7",
+      "categoryId": "dream_pet",
+      "prompt": "CHOOSE YOUR BUNNY",
+      "slug": "choose_your_bunny",
+      "images": [
+        "choose_your_bunny/1.png",
+        "choose_your_bunny/2.png",
+        "choose_your_bunny/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_bunny/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_bunny/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_bunny/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_pet_8",
+      "categoryId": "dream_pet",
+      "prompt": "CHOOSE YOUR PET POOL",
+      "slug": "choose_your_pet_pool",
+      "images": [
+        "choose_your_pet_pool/1.png",
+        "choose_your_pet_pool/2.png",
+        "choose_your_pet_pool/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_pet_pool/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_pet_pool/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_pet_pool/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_pet_9",
+      "categoryId": "dream_pet",
+      "prompt": "CHOOSE YOUR PET FOOD",
+      "slug": "choose_your_pet_food",
+      "images": [
+        "choose_your_pet_food/1.png",
+        "choose_your_pet_food/2.png",
+        "choose_your_pet_food/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_pet_food/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_pet_food/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_pet_food/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_robot_0",
+      "categoryId": "dream_robot",
+      "prompt": "CHOOSE YOUR ROBOT",
+      "slug": "choose_your_robot",
+      "images": [
+        "choose_your_robot/1.png",
+        "choose_your_robot/2.png",
+        "choose_your_robot/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_robot/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_robot/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_robot/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_robot_1",
+      "categoryId": "dream_robot",
+      "prompt": "CHOOSE YOUR ROBOT PET",
+      "slug": "choose_your_robot_pet",
+      "images": [
+        "choose_your_robot_pet/1.png",
+        "choose_your_robot_pet/2.png",
+        "choose_your_robot_pet/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_robot_pet/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_robot_pet/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_robot_pet/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_robot_2",
+      "categoryId": "dream_robot",
+      "prompt": "CHOOSE YOUR ROBOT VEHICLE",
+      "slug": "choose_your_robot_vehicle",
+      "images": [
+        "choose_your_robot_vehicle/1.png",
+        "choose_your_robot_vehicle/2.png",
+        "choose_your_robot_vehicle/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_robot_vehicle/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_robot_vehicle/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_robot_vehicle/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_robot_3",
+      "categoryId": "dream_robot",
+      "prompt": "CHOOSE YOUR ROBOT HOME",
+      "slug": "choose_your_robot_home",
+      "images": [
+        "choose_your_robot_home/1.png",
+        "choose_your_robot_home/2.png",
+        "choose_your_robot_home/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_robot_home/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_robot_home/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_robot_home/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_robot_4",
+      "categoryId": "dream_robot",
+      "prompt": "CHOOSE YOUR ROBOT POWER",
+      "slug": "choose_your_robot_power",
+      "images": [
+        "choose_your_robot_power/1.png",
+        "choose_your_robot_power/2.png",
+        "choose_your_robot_power/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_robot_power/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_robot_power/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_robot_power/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_robot_5",
+      "categoryId": "dream_robot",
+      "prompt": "CHOOSE YOUR ROBOT FRIEND",
+      "slug": "choose_your_robot_friend",
+      "images": [
+        "choose_your_robot_friend/1.png",
+        "choose_your_robot_friend/2.png",
+        "choose_your_robot_friend/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_robot_friend/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_robot_friend/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_robot_friend/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_robot_6",
+      "categoryId": "dream_robot",
+      "prompt": "CHOOSE YOUR ROBOT UPGRADE",
+      "slug": "choose_your_robot_upgrade",
+      "images": [
+        "choose_your_robot_upgrade/1.png",
+        "choose_your_robot_upgrade/2.png",
+        "choose_your_robot_upgrade/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_robot_upgrade/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_robot_upgrade/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_robot_upgrade/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_robot_7",
+      "categoryId": "dream_robot",
+      "prompt": "CHOOSE YOUR ROBOT MISSION",
+      "slug": "choose_your_robot_mission",
+      "images": [
+        "choose_your_robot_mission/1.png",
+        "choose_your_robot_mission/2.png",
+        "choose_your_robot_mission/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_robot_mission/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_robot_mission/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_robot_mission/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_school_0",
+      "categoryId": "dream_school",
+      "prompt": "CHOOSE YOUR SCHOOL",
+      "slug": "choose_your_school",
+      "images": [
+        "choose_your_school/1.png",
+        "choose_your_school/2.png",
+        "choose_your_school/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_school/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_school/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_school/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_school_1",
+      "categoryId": "dream_school",
+      "prompt": "CHOOSE YOUR BACKPACK",
+      "slug": "choose_your_backpack",
+      "images": [
+        "choose_your_backpack/1.png",
+        "choose_your_backpack/2.png",
+        "choose_your_backpack/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_backpack/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_backpack/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_backpack/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_school_2",
+      "categoryId": "dream_school",
+      "prompt": "CHOOSE YOUR LUNCH",
+      "slug": "choose_your_lunch",
+      "images": [
+        "choose_your_lunch/1.png",
+        "choose_your_lunch/2.png",
+        "choose_your_lunch/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_lunch/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_lunch/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_lunch/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_school_3",
+      "categoryId": "dream_school",
+      "prompt": "CHOOSE YOUR TEACHER",
+      "slug": "choose_your_teacher",
+      "images": [
+        "choose_your_teacher/1.png",
+        "choose_your_teacher/2.png",
+        "choose_your_teacher/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_teacher/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_teacher/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_teacher/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_school_4",
+      "categoryId": "dream_school",
+      "prompt": "CHOOSE YOUR PLAYGROUND",
+      "slug": "choose_your_playground",
+      "images": [
+        "choose_your_playground/1.png",
+        "choose_your_playground/2.png",
+        "choose_your_playground/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_playground/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_playground/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_playground/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_school_5",
+      "categoryId": "dream_school",
+      "prompt": "CHOOSE YOUR SCHOOL BUS",
+      "slug": "choose_your_school_bus",
+      "images": [
+        "choose_your_school_bus/1.png",
+        "choose_your_school_bus/2.png",
+        "choose_your_school_bus/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_school_bus/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_school_bus/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_school_bus/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_school_6",
+      "categoryId": "dream_school",
+      "prompt": "CHOOSE YOUR LOCKER",
+      "slug": "choose_your_locker",
+      "images": [
+        "choose_your_locker/1.png",
+        "choose_your_locker/2.png",
+        "choose_your_locker/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_locker/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_locker/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_locker/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_space_0",
+      "categoryId": "dream_space",
+      "prompt": "CHOOSE YOUR SPACESHIP",
+      "slug": "choose_your_spaceship",
+      "images": [
+        "choose_your_spaceship/1.png",
+        "choose_your_spaceship/2.png",
+        "choose_your_spaceship/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_spaceship/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_spaceship/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_spaceship/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_space_1",
+      "categoryId": "dream_space",
+      "prompt": "CHOOSE YOUR PLANET",
+      "slug": "choose_your_planet",
+      "images": [
+        "choose_your_planet/1.png",
+        "choose_your_planet/2.png",
+        "choose_your_planet/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_planet/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_planet/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_planet/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_space_2",
+      "categoryId": "dream_space",
+      "prompt": "CHOOSE YOUR SPACE SUIT",
+      "slug": "choose_your_space_suit",
+      "images": [
+        "choose_your_space_suit/1.png",
+        "choose_your_space_suit/2.png",
+        "choose_your_space_suit/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_space_suit/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_space_suit/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_space_suit/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_space_3",
+      "categoryId": "dream_space",
+      "prompt": "CHOOSE YOUR ALIEN FRIEND",
+      "slug": "choose_your_alien_friend",
+      "images": [
+        "choose_your_alien_friend/1.png",
+        "choose_your_alien_friend/2.png",
+        "choose_your_alien_friend/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_alien_friend/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_alien_friend/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_alien_friend/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_superpower_0",
+      "categoryId": "dream_superpower",
+      "prompt": "CHOOSE YOUR SUPERPOWER",
+      "slug": "choose_your_superpower",
+      "images": [
+        "choose_your_superpower/1.png",
+        "choose_your_superpower/2.png",
+        "choose_your_superpower/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_superpower/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_superpower/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_superpower/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_superpower_1",
+      "categoryId": "dream_superpower",
+      "prompt": "CHOOSE YOUR SECRET BASE",
+      "slug": "choose_your_secret_base",
+      "images": [
+        "choose_your_secret_base/1.png",
+        "choose_your_secret_base/2.png",
+        "choose_your_secret_base/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_secret_base/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_secret_base/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_secret_base/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_superpower_2",
+      "categoryId": "dream_superpower",
+      "prompt": "CHOOSE YOUR SIDEKICK",
+      "slug": "choose_your_sidekick",
+      "images": [
+        "choose_your_sidekick/1.png",
+        "choose_your_sidekick/2.png",
+        "choose_your_sidekick/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_sidekick/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_sidekick/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_sidekick/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_superpower_3",
+      "categoryId": "dream_superpower",
+      "prompt": "CHOOSE YOUR WEAPON",
+      "slug": "choose_your_weapon",
+      "images": [
+        "choose_your_weapon/1.png",
+        "choose_your_weapon/2.png",
+        "choose_your_weapon/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_weapon/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_weapon/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_weapon/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_treehouse_0",
+      "categoryId": "dream_treehouse",
+      "prompt": "CHOOSE YOUR TREEHOUSE",
+      "slug": "choose_your_treehouse",
+      "images": [
+        "choose_your_treehouse/1.png",
+        "choose_your_treehouse/2.png",
+        "choose_your_treehouse/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_treehouse/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_treehouse/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_treehouse/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_treehouse_1",
+      "categoryId": "dream_treehouse",
+      "prompt": "CHOOSE YOUR SLIDE",
+      "slug": "choose_your_slide",
+      "images": [
+        "choose_your_slide/1.png",
+        "choose_your_slide/2.png",
+        "choose_your_slide/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_slide/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_slide/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_slide/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_treehouse_2",
+      "categoryId": "dream_treehouse",
+      "prompt": "CHOOSE YOUR SECRET ROOM",
+      "slug": "choose_your_secret_room",
+      "images": [
+        "choose_your_secret_room/1.png",
+        "choose_your_secret_room/2.png",
+        "choose_your_secret_room/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_secret_room/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_secret_room/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_secret_room/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_treehouse_3",
+      "categoryId": "dream_treehouse",
+      "prompt": "CHOOSE YOUR BRIDGE",
+      "slug": "choose_your_bridge",
+      "images": [
+        "choose_your_bridge/1.png",
+        "choose_your_bridge/2.png",
+        "choose_your_bridge/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_bridge/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_bridge/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_bridge/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_treehouse_4",
+      "categoryId": "dream_treehouse",
+      "prompt": "CHOOSE YOUR TREEHOUSE KITCHEN",
+      "slug": "choose_your_treehouse_kitchen",
+      "images": [
+        "choose_your_treehouse_kitchen/1.png",
+        "choose_your_treehouse_kitchen/2.png",
+        "choose_your_treehouse_kitchen/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_treehouse_kitchen/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_treehouse_kitchen/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_treehouse_kitchen/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_vacation_0",
+      "categoryId": "dream_vacation",
+      "prompt": "CHOOSE YOUR ISLAND",
+      "slug": "choose_your_island",
+      "images": [
+        "choose_your_island/1.png",
+        "choose_your_island/2.png",
+        "choose_your_island/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_island/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_island/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_island/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_vacation_1",
+      "categoryId": "dream_vacation",
+      "prompt": "CHOOSE YOUR HOTEL ROOM",
+      "slug": "choose_your_hotel_room",
+      "images": [
+        "choose_your_hotel_room/1.png",
+        "choose_your_hotel_room/2.png",
+        "choose_your_hotel_room/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_hotel_room/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_hotel_room/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_hotel_room/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_vacation_2",
+      "categoryId": "dream_vacation",
+      "prompt": "CHOOSE YOUR POOL",
+      "slug": "choose_your_pool",
+      "images": [
+        "choose_your_pool/1.png",
+        "choose_your_pool/2.png",
+        "choose_your_pool/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_pool/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_pool/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_pool/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_vacation_3",
+      "categoryId": "dream_vacation",
+      "prompt": "CHOOSE YOUR THEME PARK",
+      "slug": "choose_your_theme_park",
+      "images": [
+        "choose_your_theme_park/1.png",
+        "choose_your_theme_park/2.png",
+        "choose_your_theme_park/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_theme_park/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_theme_park/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_theme_park/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_vacation_4",
+      "categoryId": "dream_vacation",
+      "prompt": "CHOOSE YOUR AIRPLANE SEAT",
+      "slug": "choose_your_airplane_seat",
+      "images": [
+        "choose_your_airplane_seat/1.png",
+        "choose_your_airplane_seat/2.png",
+        "choose_your_airplane_seat/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_airplane_seat/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_airplane_seat/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_airplane_seat/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_vacation_5",
+      "categoryId": "dream_vacation",
+      "prompt": "CHOOSE YOUR CRUISE SHIP",
+      "slug": "choose_your_cruise_ship",
+      "images": [
+        "choose_your_cruise_ship/1.png",
+        "choose_your_cruise_ship/2.png",
+        "choose_your_cruise_ship/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_cruise_ship/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_cruise_ship/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_cruise_ship/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_vacation_6",
+      "categoryId": "dream_vacation",
+      "prompt": "CHOOSE YOUR BEACH",
+      "slug": "choose_your_beach",
+      "images": [
+        "choose_your_beach/1.png",
+        "choose_your_beach/2.png",
+        "choose_your_beach/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_beach/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_beach/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_beach/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_vacation_7",
+      "categoryId": "dream_vacation",
+      "prompt": "CHOOSE YOUR SKI RESORT",
+      "slug": "choose_your_ski_resort",
+      "images": [
+        "choose_your_ski_resort/1.png",
+        "choose_your_ski_resort/2.png",
+        "choose_your_ski_resort/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_ski_resort/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_ski_resort/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_ski_resort/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_vacation_8",
+      "categoryId": "dream_vacation",
+      "prompt": "CHOOSE YOUR SAFARI",
+      "slug": "choose_your_safari",
+      "images": [
+        "choose_your_safari/1.png",
+        "choose_your_safari/2.png",
+        "choose_your_safari/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_safari/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_safari/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_safari/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_vacation_9",
+      "categoryId": "dream_vacation",
+      "prompt": "CHOOSE YOUR ROAD TRIP",
+      "slug": "choose_your_road_trip",
+      "images": [
+        "choose_your_road_trip/1.png",
+        "choose_your_road_trip/2.png",
+        "choose_your_road_trip/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_road_trip/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_road_trip/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_road_trip/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_vacation_10",
+      "categoryId": "dream_vacation",
+      "prompt": "CHOOSE YOUR TRAIN RIDE",
+      "slug": "choose_your_train_ride",
+      "images": [
+        "choose_your_train_ride/1.png",
+        "choose_your_train_ride/2.png",
+        "choose_your_train_ride/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_train_ride/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_train_ride/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_train_ride/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    },
+    {
+      "id": "dream_vacation_11",
+      "categoryId": "dream_vacation",
+      "prompt": "CHOOSE YOUR CAMPING",
+      "slug": "choose_your_camping",
+      "images": [
+        "choose_your_camping/1.png",
+        "choose_your_camping/2.png",
+        "choose_your_camping/3.png"
+      ],
+      "options": [
+        {
+          "id": 1,
+          "label": "Option 1",
+          "image": "choose_your_camping/1.png",
+          "rarity": "common"
+        },
+        {
+          "id": 2,
+          "label": "Option 2",
+          "image": "choose_your_camping/2.png",
+          "rarity": "common"
+        },
+        {
+          "id": 3,
+          "label": "Mystery Pick",
+          "image": "choose_your_camping/3.png",
+          "rarity": "rare",
+          "isMystery": true
+        }
+      ]
+    }
+  ]
+}
