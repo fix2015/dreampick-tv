@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { getRarityColor } from '../utils/helpers';
+import { img } from '../utils/assets';
 import Confetti from './Confetti';
 
 export default function EndScreen({ sessionItems, sessionStars, streak, onPlayAgain, onGoHome, play }) {
@@ -16,7 +17,7 @@ export default function EndScreen({ sessionItems, sessionStars, streak, onPlayAg
       <Confetti active count={50} />
 
       <img
-        src="/images/end_screen.png"
+        src={img('end_screen.png')}
         alt=""
         className="absolute inset-0 w-full h-full object-cover opacity-20"
         onError={(e) => { e.target.style.display = 'none'; }}
@@ -95,7 +96,7 @@ export default function EndScreen({ sessionItems, sessionStars, streak, onPlayAg
               }}
             >
               <img
-                src={`/images/${item.image}`}
+                src={img(item.image)}
                 alt={item.prompt}
                 className="w-full h-full object-cover"
               />

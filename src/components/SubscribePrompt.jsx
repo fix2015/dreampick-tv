@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { img } from '../utils/assets';
 
 export default function SubscribePrompt({ show, onDismiss, play }) {
   useEffect(() => {
@@ -19,7 +20,7 @@ export default function SubscribePrompt({ show, onDismiss, play }) {
       >
         <div className="absolute inset-0">
           <img
-            src="/images/subscribe_bg.png"
+            src={img('subscribe_bg.png')}
             alt=""
             className="w-full h-full object-cover"
             onError={(e) => {

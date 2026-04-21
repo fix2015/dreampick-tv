@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getRarityLabel, getRarityColor } from '../utils/helpers';
+import { img } from '../utils/assets';
 import Confetti from './Confetti';
 
 export default function RewardPopup({ reward, onContinue, play }) {
@@ -84,7 +85,7 @@ export default function RewardPopup({ reward, onContinue, play }) {
               }}
             >
               <img
-                src={`/images/${reward.image}`}
+                src={img(reward.image)}
                 alt={reward.prompt}
                 className="w-full h-full object-cover"
               />

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { img } from '../utils/assets';
 
 export default function QuizCard({ option, index, isSelected, isDisabled, onSelect, theme }) {
   const isChosen = isSelected === index;
@@ -25,7 +26,7 @@ export default function QuizCard({ option, index, isSelected, isDisabled, onSele
         style={{ boxShadow: isChosen ? undefined : 'var(--shadow-card)' }}
       >
         <img
-          src={`/images/${option.image}`}
+          src={img(option.image)}
           alt={option.label}
           className="w-full h-full object-cover"
           loading="eager"

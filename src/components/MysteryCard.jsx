@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { img } from '../utils/assets';
 
 export default function MysteryCard({ option, index, isSelected, isDisabled, isRevealed, onSelect, theme }) {
   const [flipped, setFlipped] = useState(false);
@@ -50,7 +51,7 @@ export default function MysteryCard({ option, index, isSelected, isDisabled, isR
                 }}
               >
                 <img
-                  src="/images/mystery_box.png"
+                  src={img('mystery_box.png')}
                   alt="Mystery"
                   className="w-4/5 h-4/5 object-contain drop-shadow-lg"
                 />
@@ -61,7 +62,7 @@ export default function MysteryCard({ option, index, isSelected, isDisabled, isR
             {/* Back - Revealed */}
             <div className="card-back w-full h-full">
               <img
-                src={`/images/${option.image}`}
+                src={img(option.image)}
                 alt="Mystery Revealed"
                 className="w-full h-full object-cover"
               />
