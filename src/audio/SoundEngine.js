@@ -9,6 +9,7 @@ let masterGain = null;
 let bgmGain = null;
 let bgmInterval = null;
 let muted = false;
+let unlocked = false;
 
 function getCtx() {
   if (!ctx) {
@@ -20,6 +21,24 @@ function getCtx() {
     bgmGain.connect(masterGain);
   }
   return ctx;
+}
+
+/**
+ * Must be called from a direct user gesture (click/touchstart) on mobile.
+ * Creates the AudioContext if needed and resumes it.
+ */
+function unlock() {
+  const c = getCtx();
+  if (c.state === 'suspended') c.resume();
+  // iOS Safari: play a silent buffer to fully unlock audio
+  if (!unlocked) {
+    unlocked = true;
+    const buf = c.createBuffer(1, 1, c.sampleRate);
+    const src = c.createBufferSource();
+    src.buffer = buf;
+    src.connect(c.destination);
+    src.start(0);
+  }
 }
 
 function resume() {
@@ -93,10 +112,8 @@ const sounds = {
   cardReveal() {
     const c = getCtx();
     const t = c.currentTime;
-    // Shimmer sweep
     const { filter } = noise(0.5, t, 3000, 0.12);
     filter.frequency.exponentialRampToValueAtTime(500, t + 0.5);
-    // Rising tone
     const o = c.createOscillator();
     const g = c.createGain();
     o.type = 'sine';
@@ -120,24 +137,20 @@ const sounds = {
   rewardRare() {
     const c = getCtx();
     const t = c.currentTime;
-    // C5 - E5 - G5 arpeggio
     osc('sine', 523, t, 0.2, 0.25);
     osc('sine', 659, t + 0.12, 0.2, 0.25);
     osc('sine', 784, t + 0.24, 0.35, 0.3);
-    // Shimmer
     noise(0.4, t + 0.2, 4000, 0.06);
   },
 
   rewardLegendary() {
     const c = getCtx();
     const t = c.currentTime;
-    // 5-note fanfare: C5 - D5 - E5 - G5 - C6
     const notes = [523, 587, 659, 784, 1047];
     notes.forEach((freq, i) => {
       osc('sine', freq, t + i * 0.1, 0.35, 0.25);
-      osc('sine', freq * 2, t + i * 0.1, 0.25, 0.08); // harmonic
+      osc('sine', freq * 2, t + i * 0.1, 0.25, 0.08);
     });
-    // Big shimmer
     noise(0.8, t + 0.15, 5000, 0.08);
     noise(0.5, t + 0.4, 2000, 0.06);
   },
@@ -145,7 +158,6 @@ const sounds = {
   confetti() {
     const c = getCtx();
     const t = c.currentTime;
-    // Burst of random sparkle blips
     for (let i = 0; i < 12; i++) {
       const freq = 1500 + Math.random() * 3000;
       const delay = Math.random() * 0.4;
@@ -157,7 +169,6 @@ const sounds = {
   subscribeAppear() {
     const c = getCtx();
     const t = c.currentTime;
-    // G5 - E5 gentle descending
     osc('sine', 784, t, 0.2, 0.2);
     osc('sine', 659, t + 0.15, 0.3, 0.18);
   },
@@ -165,7 +176,7 @@ const sounds = {
 
 // --- Background Music ---
 
-const BGM_NOTES = [523, 587, 659, 784, 880, 784, 659, 587]; // C5 pentatonic-ish loop
+const BGM_NOTES = [523, 587, 659, 784, 880, 784, 659, 587];
 let bgmStep = 0;
 
 function bgmTick() {
@@ -176,7 +187,6 @@ function bgmTick() {
   const g = ctx.createGain();
   o.type = 'sine';
   o.frequency.value = freq;
-  // Detune slightly for warmth
   o.detune.value = (Math.random() - 0.5) * 10;
   g.gain.setValueAtTime(0.12, t);
   g.gain.exponentialRampToValueAtTime(0.001, t + 0.6);
@@ -185,7 +195,6 @@ function bgmTick() {
   o.start(t);
   o.stop(t + 0.7);
 
-  // Soft pad underneath every 2 beats
   if (bgmStep % 2 === 0) {
     const pad = ctx.createOscillator();
     const pg = ctx.createGain();
@@ -220,6 +229,7 @@ function stopBgm() {
 // --- Public API ---
 
 export const SoundEngine = {
+  unlock,
   resume,
 
   play(id) {

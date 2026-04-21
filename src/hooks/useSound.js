@@ -17,18 +17,20 @@ export function useSound() {
     SoundEngine.setMuted(isMuted);
   }, [isMuted]);
 
-  // Resume AudioContext on first user interaction (iOS/Safari requirement)
+  // Unlock AudioContext on first user gesture — required on iOS/Android
+  // Must happen inside a direct touch/click handler to satisfy browser autoplay policy
   useEffect(() => {
     const handler = () => {
-      SoundEngine.resume();
-      document.removeEventListener('click', handler);
-      document.removeEventListener('touchstart', handler);
+      SoundEngine.unlock();
     };
-    document.addEventListener('click', handler, { once: true });
-    document.addEventListener('touchstart', handler, { once: true });
+    // Use capture phase so we unlock before any other handler runs
+    document.addEventListener('touchstart', handler, { capture: true });
+    document.addEventListener('touchend', handler, { capture: true });
+    document.addEventListener('click', handler, { capture: true });
     return () => {
-      document.removeEventListener('click', handler);
-      document.removeEventListener('touchstart', handler);
+      document.removeEventListener('touchstart', handler, { capture: true });
+      document.removeEventListener('touchend', handler, { capture: true });
+      document.removeEventListener('click', handler, { capture: true });
     };
   }, []);
 

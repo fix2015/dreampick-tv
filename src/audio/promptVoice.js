@@ -5,15 +5,19 @@
 
 import manifest from './promptManifest.json';
 
+const BASE = import.meta.env.BASE_URL;
 let currentAudio = null;
 
 export function playPromptVoice(promptText) {
   stopPromptVoice();
 
-  const path = manifest[promptText];
-  if (!path) return;
+  const rawPath = manifest[promptText];
+  if (!rawPath) return;
 
-  currentAudio = new Audio(path);
+  // Prepend base URL and strip leading slash from manifest path
+  const url = `${BASE}${rawPath.replace(/^\//, '')}`;
+
+  currentAudio = new Audio(url);
   currentAudio.volume = 0.8;
   currentAudio.play().catch(() => {
     // Autoplay blocked — ignore silently
