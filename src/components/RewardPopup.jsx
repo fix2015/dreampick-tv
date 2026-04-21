@@ -1,8 +1,24 @@
+import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getRarityLabel, getRarityColor } from '../utils/helpers';
 import Confetti from './Confetti';
 
-export default function RewardPopup({ reward, onContinue }) {
+export default function RewardPopup({ reward, onContinue, play }) {
+  useEffect(() => {
+    if (!reward) return;
+    if (reward.rarity === 'legendary') {
+      play('rewardLegendary');
+    } else if (reward.rarity === 'rare') {
+      play('rewardRare');
+    } else {
+      play('rewardCommon');
+    }
+    const special = reward.rarity === 'rare' || reward.rarity === 'legendary';
+    if (special || reward.isLucky) {
+      play('confetti');
+    }
+  }, [reward, play]);
+
   if (!reward) return null;
 
   const isLucky = reward.isLucky;

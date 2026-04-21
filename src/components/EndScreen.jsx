@@ -1,8 +1,13 @@
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { getRarityColor } from '../utils/helpers';
 import Confetti from './Confetti';
 
-export default function EndScreen({ sessionItems, sessionStars, streak, onPlayAgain, onGoHome }) {
+export default function EndScreen({ sessionItems, sessionStars, streak, onPlayAgain, onGoHome, play }) {
+  useEffect(() => {
+    play('confetti');
+  }, [play]);
+
   const luckyCount = sessionItems.filter(i => i.isLucky).length;
   const rareCount = sessionItems.filter(i => i.rarity === 'rare' || i.rarity === 'legendary').length;
 

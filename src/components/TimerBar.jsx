@@ -1,14 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
 const TIMER_DURATION = 3000;
 
-export default function TimerBar({ isActive, onComplete, theme }) {
+export default function TimerBar({ isActive, onComplete, theme, play }) {
   const [progress, setProgress] = useState(0);
+  const tickedSeconds = useRef(new Set());
 
   useEffect(() => {
     if (!isActive) {
       setProgress(0);
+      tickedSeconds.current.clear();
       return;
     }
 
@@ -20,6 +22,13 @@ export default function TimerBar({ isActive, onComplete, theme }) {
       const pct = Math.min(elapsed / TIMER_DURATION, 1);
       setProgress(pct);
 
+      // Play tick sound at 1s, 2s, 3s thresholds
+      const sec = Math.floor(elapsed / 1000) + 1;
+      if (sec <= 3 && !tickedSeconds.current.has(sec)) {
+        tickedSeconds.current.add(sec);
+        play('countdownTick');
+      }
+
       if (pct >= 1) {
         onComplete();
         return;
@@ -29,7 +38,7 @@ export default function TimerBar({ isActive, onComplete, theme }) {
 
     frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
-  }, [isActive, onComplete]);
+  }, [isActive, onComplete, play]);
 
   if (!isActive) return null;
 

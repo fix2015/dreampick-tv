@@ -19,6 +19,7 @@ export default function QuestionScreen({
   onSelectCard,
   onCountdownComplete,
   onCollectReward,
+  play,
 }) {
   const theme = getTheme(currentIndex);
   const isRevealed = phase === 'reveal' || phase === 'reward';
@@ -26,10 +27,11 @@ export default function QuestionScreen({
 
   useEffect(() => {
     if (phase === 'reveal') {
+      play('cardReveal');
       const timer = setTimeout(onCollectReward, 1500);
       return () => clearTimeout(timer);
     }
-  }, [phase, onCollectReward]);
+  }, [phase, onCollectReward, play]);
 
   if (!question) return null;
 
@@ -123,6 +125,7 @@ export default function QuestionScreen({
           isActive={phase === 'countdown'}
           onComplete={onCountdownComplete}
           theme={theme}
+          play={play}
         />
 
         {/* Instruction text */}

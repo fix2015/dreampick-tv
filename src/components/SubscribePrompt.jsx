@@ -1,6 +1,11 @@
+import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function SubscribePrompt({ show, onDismiss }) {
+export default function SubscribePrompt({ show, onDismiss, play }) {
+  useEffect(() => {
+    if (show) play('subscribeAppear');
+  }, [show, play]);
+
   if (!show) return null;
 
   return (

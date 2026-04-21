@@ -1,9 +1,12 @@
+import { useEffect } from 'react';
 import HomeScreen from './components/HomeScreen';
 import QuestionScreen from './components/QuestionScreen';
 import EndScreen from './components/EndScreen';
 import RewardPopup from './components/RewardPopup';
 import SubscribePrompt from './components/SubscribePrompt';
+import MuteButton from './components/MuteButton';
 import { useGameState } from './hooks/useGameState';
+import { useSound } from './hooks/useSound';
 
 export default function App() {
   const {
@@ -30,12 +33,49 @@ export default function App() {
     goHome,
   } = useGameState();
 
+  const { play, isMuted, toggleMute, startBgm, stopBgm } = useSound();
+
+  // Background music: play during game, stop on other screens
+  useEffect(() => {
+    if (screen === 'game') {
+      startBgm();
+    } else {
+      stopBgm();
+    }
+  }, [screen, startBgm, stopBgm]);
+
+  const handleStartGame = (categoryId) => {
+    play('buttonClick');
+    startGame(categoryId);
+  };
+
+  const handleSelectCard = (cardIndex) => {
+    play('cardPick');
+    selectCard(cardIndex);
+  };
+
+  const handleNextQuestion = () => {
+    play('buttonClick');
+    nextQuestion();
+  };
+
+  const handleDismissSubscribe = () => {
+    play('buttonClick');
+    dismissSubscribe();
+  };
+
+  const handleGoHome = () => {
+    play('buttonClick');
+    goHome();
+  };
+
   return (
     <div className="min-h-screen">
       {screen === 'home' && (
         <HomeScreen
           categories={categories}
-          onStartGame={startGame}
+          onStartGame={handleStartGame}
+          play={play}
         />
       )}
 
@@ -50,21 +90,24 @@ export default function App() {
             sessionStars={sessionStars}
             streak={streak}
             dreamEnergy={dreamEnergy}
-            onSelectCard={selectCard}
+            onSelectCard={handleSelectCard}
             onCountdownComplete={onCountdownComplete}
             onCollectReward={collectReward}
+            play={play}
           />
 
           {phase === 'reward' && (
             <RewardPopup
               reward={lastReward}
-              onContinue={nextQuestion}
+              onContinue={handleNextQuestion}
+              play={play}
             />
           )}
 
           <SubscribePrompt
             show={showSubscribe}
-            onDismiss={dismissSubscribe}
+            onDismiss={handleDismissSubscribe}
+            play={play}
           />
         </>
       )}
@@ -74,10 +117,13 @@ export default function App() {
           sessionItems={sessionItems}
           sessionStars={sessionStars}
           streak={streak}
-          onPlayAgain={() => startGame(currentCategory)}
-          onGoHome={goHome}
+          onPlayAgain={() => { play('buttonClick'); startGame(currentCategory); }}
+          onGoHome={handleGoHome}
+          play={play}
         />
       )}
+
+      <MuteButton isMuted={isMuted} onToggle={toggleMute} />
     </div>
   );
 }
