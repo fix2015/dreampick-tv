@@ -7,6 +7,7 @@ import SubscribePrompt from './components/SubscribePrompt';
 import MuteButton from './components/MuteButton';
 import { useGameState } from './hooks/useGameState';
 import { useSound } from './hooks/useSound';
+import { stopPromptVoice } from './audio/promptVoice';
 
 export default function App() {
   const {
@@ -66,6 +67,7 @@ export default function App() {
 
   const handleGoHome = () => {
     play('buttonClick');
+    stopPromptVoice();
     goHome();
   };
 
@@ -93,6 +95,7 @@ export default function App() {
             onSelectCard={handleSelectCard}
             onCountdownComplete={onCountdownComplete}
             onCollectReward={collectReward}
+            onGoHome={handleGoHome}
             play={play}
           />
 

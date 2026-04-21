@@ -6,6 +6,7 @@ import TimerBar from './TimerBar';
 import ProgressHUD from './ProgressHUD';
 import BackgroundEffects from './BackgroundEffects';
 import { getTheme } from '../utils/themes';
+import { playPromptVoice, stopPromptVoice } from '../audio/promptVoice';
 
 export default function QuestionScreen({
   question,
@@ -19,11 +20,20 @@ export default function QuestionScreen({
   onSelectCard,
   onCountdownComplete,
   onCollectReward,
+  onGoHome,
   play,
 }) {
   const theme = getTheme(currentIndex);
   const isRevealed = phase === 'reveal' || phase === 'reward';
   const isDisabled = phase !== 'choosing';
+
+  // Play TTS voice for each new question
+  useEffect(() => {
+    if (question && phase === 'choosing') {
+      playPromptVoice(question.prompt);
+    }
+    return () => stopPromptVoice();
+  }, [question?.id, phase]);
 
   useEffect(() => {
     if (phase === 'reveal') {
@@ -55,7 +65,26 @@ export default function QuestionScreen({
         </span>
       </div>
 
-      {/* Main content — stacked with system spacing */}
+      {/* Back button — top left */}
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={onGoHome}
+        className="absolute z-20 flex items-center justify-center bg-white/20 backdrop-blur-sm border-2 border-white/30 cursor-pointer"
+        style={{
+          top: 'var(--safe-inset)',
+          left: 'var(--safe-inset)',
+          width: '44px',
+          height: '44px',
+          borderRadius: 'var(--radius-full)',
+          fontSize: '20px',
+        }}
+        aria-label="Back to home"
+      >
+        ←
+      </motion.button>
+
+      {/* Main content */}
       <div
         className="relative z-10 flex flex-col items-center w-full"
         style={{ padding: 'var(--sp-24) 0', gap: 'var(--sp-24)' }}
