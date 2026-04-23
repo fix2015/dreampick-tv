@@ -4,5 +4,5 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: '/dreampick-tv/',
+  base: process.env.CAPACITOR ? '/' : '/dreampick-tv/',
 })

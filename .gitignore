@@ -9,6 +9,10 @@ lerna-debug.log*
 
 node_modules
 dist
+
+# Capacitor native projects (regenerated with cap sync)
+ios/App/App/public
+android/app/src/main/assets/public
 dist-ssr
 *.local
 
