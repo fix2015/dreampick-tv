@@ -1,5 +1,5 @@
-const BASE = import.meta.env.BASE_URL;
+const CDN = 'https://gport.s3.eu-central-1.amazonaws.com/dreampick-tv';
 
 export function img(path) {
-  return `${BASE}images/${path}`;
+  return `${CDN}/images/${path}`;
 }

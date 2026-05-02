@@ -5,7 +5,7 @@
 
 import manifest from './promptManifest.json';
 
-const BASE = import.meta.env.BASE_URL;
+const CDN = 'https://gport.s3.eu-central-1.amazonaws.com/dreampick-tv';
 let currentAudio = null;
 
 export function playPromptVoice(promptText) {
@@ -14,8 +14,7 @@ export function playPromptVoice(promptText) {
   const rawPath = manifest[promptText];
   if (!rawPath) return;
 
-  // Prepend base URL and strip leading slash from manifest path
-  const url = `${BASE}${rawPath.replace(/^\//, '')}`;
+  const url = `${CDN}/${rawPath.replace(/^\//, '')}`;
 
   currentAudio = new Audio(url);
   currentAudio.volume = 0.8;

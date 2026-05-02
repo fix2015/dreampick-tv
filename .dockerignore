@@ -5,3 +5,5 @@ android
 .git
 .github
 *.md
+public/images
+public/audio
