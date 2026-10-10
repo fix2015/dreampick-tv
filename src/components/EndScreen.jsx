@@ -5,6 +5,7 @@ import { img } from '../utils/assets';
 import Confetti from './Confetti';
 import YouTubeLink from './YouTubeLink';
 import DuoSummary from './DuoSummary';
+import ShareButton from './ShareButton';
 
 export default function EndScreen({ sessionItems, duoResults, sessionStars, streak, onPlayAgain, onGoHome, play }) {
   useEffect(() => {
@@ -149,6 +150,7 @@ export default function EndScreen({ sessionItems, duoResults, sessionStars, stre
           >
             Try Another Category 🎮
           </motion.button>
+          <ShareButton sessionItems={sessionItems} sessionStars={sessionStars} />
           <YouTubeLink
             className="dp-btn no-underline text-center"
             style={{ background: 'linear-gradient(135deg, var(--color-youtube), var(--color-youtube-dark))' }}
