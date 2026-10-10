@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { getRarityLabel, getRarityColor } from '../utils/helpers';
+import { getRarityColor } from '../utils/helpers';
 import { img } from '../utils/assets';
 import Confetti from './Confetti';
-import { promptNoun, duoAgreed } from '../utils/duo';
+import { duoAgreed } from '../utils/duo';
+import { useI18n, questionNoun } from '../i18n/i18n';
 
 export default function RewardPopup({ reward, duoResult, onContinue, play }) {
+  const { t } = useI18n();
   useEffect(() => {
     if (!reward) return;
     if (reward.rarity === 'legendary') {
@@ -69,7 +71,7 @@ export default function RewardPopup({ reward, duoResult, onContinue, play }) {
                 className="font-bold text-yellow-500"
                 style={{ fontSize: 'var(--text-xl)' }}
               >
-                🍀 Lucky Pick! 🍀
+                {t('reward.lucky')}
               </motion.div>
             )}
 
@@ -94,14 +96,12 @@ export default function RewardPopup({ reward, duoResult, onContinue, play }) {
 
             {duoResult && (
               <p className="font-bold" style={{ fontSize: 'var(--text-lg)', color: duoAgreed(duoResult) ? '#16A34A' : '#EA580C' }}>
-                {duoAgreed(duoResult)
-                  ? `🤝 You both picked the ${promptNoun(duoResult.prompt)}!`
-                  : `🙃 Different picks for the ${promptNoun(duoResult.prompt)}!`}
+                {t(duoAgreed(duoResult) ? 'duo.agreed' : 'duo.different', { noun: questionNoun(t, duoResult.prompt) })}
               </p>
             )}
 
             <h3 className="font-bold text-gray-800" style={{ fontSize: 'var(--text-base)' }}>
-              {reward.prompt.replace('CHOOSE YOUR ', 'Your ')}
+              {t('reward.your', { noun: questionNoun(t, reward.prompt) })}
             </h3>
 
             <motion.span
@@ -115,7 +115,7 @@ export default function RewardPopup({ reward, duoResult, onContinue, play }) {
                 padding: 'var(--sp-4) var(--sp-16)',
               }}
             >
-              {getRarityLabel(reward.rarity)}
+              {t(`rarity.${reward.rarity}`)}
             </motion.span>
 
             <motion.div
@@ -139,7 +139,7 @@ export default function RewardPopup({ reward, duoResult, onContinue, play }) {
                   className="block text-orange-500 font-bold"
                   style={{ fontSize: 'var(--text-sm)', marginTop: 'var(--sp-4)' }}
                 >
-                  BONUS x2! 🎉
+                  {t('reward.bonus')}
                 </span>
               )}
             </motion.div>
@@ -154,7 +154,7 @@ export default function RewardPopup({ reward, duoResult, onContinue, play }) {
               className="dp-btn w-full"
               style={{ background: 'linear-gradient(135deg, var(--color-gold), var(--color-gold-dark))', marginTop: 'var(--sp-8)' }}
             >
-              Continue ➜
+              {t('reward.continue')}
             </motion.button>
           </div>
         </motion.div>

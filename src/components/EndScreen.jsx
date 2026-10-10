@@ -6,8 +6,10 @@ import Confetti from './Confetti';
 import YouTubeLink from './YouTubeLink';
 import DuoSummary from './DuoSummary';
 import ShareButton from './ShareButton';
+import { useI18n, questionTitle } from '../i18n/i18n';
 
 export default function EndScreen({ sessionItems, duoResults, sessionStars, streak, onPlayAgain, onGoHome, play }) {
+  const { t } = useI18n();
   useEffect(() => {
     play('confetti');
   }, [play]);
@@ -45,10 +47,10 @@ export default function EndScreen({ sessionItems, duoResults, sessionStars, stre
               marginBottom: 'var(--sp-8)',
             }}
           >
-            Thanks for Playing! 🎉
+            {t('end.title')}
           </h1>
           <p className="text-white/80" style={{ fontSize: 'var(--text-lg)' }}>
-            Your Dream Collection
+            {t('end.subtitle')}
           </p>
         </motion.div>
 
@@ -61,10 +63,10 @@ export default function EndScreen({ sessionItems, duoResults, sessionStars, stre
           style={{ gap: 'var(--sp-12)' }}
         >
           {[
-            { emoji: '⭐', value: sessionStars, label: 'Stars' },
-            { emoji: '🔥', value: streak, label: 'Streak' },
-            { emoji: '🍀', value: luckyCount, label: 'Lucky' },
-            { emoji: '💎', value: rareCount, label: 'Rares' },
+            { emoji: '⭐', value: sessionStars, label: t('end.stars') },
+            { emoji: '🔥', value: streak, label: t('end.streak') },
+            { emoji: '🍀', value: luckyCount, label: t('end.lucky') },
+            { emoji: '💎', value: rareCount, label: t('end.rares') },
           ].map((stat) => (
             <div
               key={stat.label}
@@ -102,7 +104,7 @@ export default function EndScreen({ sessionItems, duoResults, sessionStars, stre
             >
               <img
                 src={img(item.image)}
-                alt={item.prompt}
+                alt={questionTitle(t, item.prompt)}
                 className="w-full h-full object-cover"
               />
               {item.isLucky && (
@@ -117,7 +119,7 @@ export default function EndScreen({ sessionItems, duoResults, sessionStars, stre
                     padding: 'var(--sp-4) 0',
                   }}
                 >
-                  {item.rarity === 'legendary' ? '🌟 LEGEND' : '✨ RARE'}
+                  {item.rarity === 'legendary' ? t('end.legendBadge') : t('end.rareBadge')}
                 </div>
               )}
             </motion.div>
@@ -139,7 +141,7 @@ export default function EndScreen({ sessionItems, duoResults, sessionStars, stre
             className="dp-btn"
             style={{ background: 'linear-gradient(135deg, var(--color-gold), var(--color-gold-dark))' }}
           >
-            Play Again 🔄
+            {t('end.playAgain')}
           </motion.button>
           <motion.button
             whileHover={{ scale: 1.05 }}
@@ -148,14 +150,14 @@ export default function EndScreen({ sessionItems, duoResults, sessionStars, stre
             className="dp-btn"
             style={{ background: 'linear-gradient(135deg, #8B5CF6, #7C3AED)' }}
           >
-            Try Another Category 🎮
+            {t('end.another')}
           </motion.button>
           <ShareButton sessionItems={sessionItems} sessionStars={sessionStars} />
           <YouTubeLink
             className="dp-btn no-underline text-center"
             style={{ background: 'linear-gradient(135deg, var(--color-youtube), var(--color-youtube-dark))' }}
           >
-            Subscribe 🔔
+            {t('subscribe.button')}
           </YouTubeLink>
         </motion.div>
       </div>

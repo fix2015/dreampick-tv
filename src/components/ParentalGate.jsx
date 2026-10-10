@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { useI18n } from '../i18n/i18n';
 
 const ANSWER = '12'; // 7 + 5
 const KEYS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'del', '0', 'ok'];
@@ -10,6 +11,7 @@ const KEYS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'del', '0', 'ok'];
  * A wrong answer closes the dialog.
  */
 export default function ParentalGate({ onPass, onCancel }) {
+  const { t } = useI18n();
   const [value, setValue] = useState('');
   const dialogRef = useRef(null);
   const firstKeyRef = useRef(null);
@@ -86,15 +88,15 @@ export default function ParentalGate({ onPass, onCancel }) {
         onKeyDown={onKeyDown}
       >
         <h2 id="parental-gate-title" className="font-bold text-gray-800" style={{ fontSize: 'var(--text-xl)' }}>
-          Ask a grown-up
+          {t('gate.title')}
         </h2>
         <p id="parental-gate-question" className="text-gray-700" style={{ fontSize: 'var(--text-lg)', marginTop: 'var(--sp-8)' }}>
-          What is 7 + 5?
+          {t('gate.question')}
         </p>
 
         <output
           aria-live="polite"
-          aria-label="Your answer"
+          aria-label={t('gate.answer')}
           className="block font-bold text-gray-900"
           style={{
             fontSize: 'var(--text-2xl)',
@@ -113,7 +115,7 @@ export default function ParentalGate({ onPass, onCancel }) {
               ref={i === 0 ? firstKeyRef : undefined}
               type="button"
               onClick={() => press(key)}
-              aria-label={key === 'del' ? 'Delete' : key === 'ok' ? 'Check answer' : key}
+              aria-label={key === 'del' ? t('gate.delete') : key === 'ok' ? t('gate.check') : key}
               className="font-bold cursor-pointer border-none"
               style={{
                 minHeight: '48px',
@@ -134,7 +136,7 @@ export default function ParentalGate({ onPass, onCancel }) {
           className="text-gray-500 underline cursor-pointer border-none bg-transparent"
           style={{ marginTop: 'var(--sp-16)', fontSize: 'var(--text-sm)', minHeight: '44px' }}
         >
-          Cancel
+          {t('gate.cancel')}
         </button>
       </div>
     </div>,

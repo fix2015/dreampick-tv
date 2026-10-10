@@ -7,6 +7,7 @@ import ProgressHUD from './ProgressHUD';
 import BackgroundEffects from './BackgroundEffects';
 import { getTheme } from '../utils/themes';
 import { playPromptVoice, stopPromptVoice } from '../audio/promptVoice';
+import { useI18n, questionTitle } from '../i18n/i18n';
 
 export default function QuestionScreen({
   question,
@@ -25,6 +26,7 @@ export default function QuestionScreen({
   turn = 1,
   play,
 }) {
+  const { t, lang } = useI18n();
   const theme = getTheme(currentIndex);
   const isRevealed = phase === 'reveal' || phase === 'reward';
   const isDisabled = phase !== 'choosing';
@@ -33,11 +35,12 @@ export default function QuestionScreen({
   const questionId = question?.id;
   const prompt = question?.prompt;
   useEffect(() => {
-    if (questionId && phase === 'choosing') {
+    // Voice prompts are recorded in English only
+    if (questionId && phase === 'choosing' && lang === 'en') {
       playPromptVoice(prompt);
     }
     return () => stopPromptVoice();
-  }, [questionId, prompt, phase]);
+  }, [questionId, prompt, phase, lang]);
 
   useEffect(() => {
     if (phase === 'reveal') {
@@ -65,7 +68,7 @@ export default function QuestionScreen({
         style={{ right: 'var(--sp-16)', writingMode: 'vertical-rl' }}
       >
         <span className="text-white/40 font-bold tracking-widest uppercase" style={{ fontSize: 'var(--text-sm)' }}>
-          Daily Quiz
+          {t('question.sideLabel')}
         </span>
       </div>
 
@@ -83,7 +86,7 @@ export default function QuestionScreen({
           borderRadius: 'var(--radius-full)',
           fontSize: '20px',
         }}
-        aria-label="Back to home"
+        aria-label={t('question.back')}
       >
         ←
       </motion.button>
@@ -118,7 +121,7 @@ export default function QuestionScreen({
               lineHeight: 1.2,
             }}
           >
-            {question.prompt}
+            {questionTitle(t, question.prompt).toUpperCase()}
           </h2>
         </motion.div>
 
@@ -170,7 +173,7 @@ export default function QuestionScreen({
             className="text-white/70 font-medium"
             style={{ fontSize: 'var(--text-base)' }}
           >
-            {players === 2 ? `Player ${turn}, tap a card to pick! 👆` : 'Tap a card to pick! 👆'}
+            {players === 2 ? t('question.playerTurn', { player: turn }) : t('question.tapToPick')}
           </motion.p>
         )}
       </div>

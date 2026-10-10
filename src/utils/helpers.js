@@ -19,16 +19,6 @@ export function determineRarity() {
   return 'common';
 }
 
-export function getRarityLabel(rarity) {
-  const labels = {
-    common: 'Common',
-    uncommon: 'Uncommon',
-    rare: '✨ Rare!',
-    legendary: '🌟 Legendary!',
-  };
-  return labels[rarity] || 'Common';
-}
-
 export function getRarityColor(rarity) {
   const colors = {
     common: '#9CA3AF',
@@ -42,19 +32,4 @@ export function getRarityColor(rarity) {
 export function getStarsForRarity(rarity) {
   const stars = { common: 1, uncommon: 2, rare: 3, legendary: 5 };
   return stars[rarity] || 1;
-}
-
-const LOADING_PHRASES = [
-  "Mixing dream ingredients...",
-  "Polishing the mystery box...",
-  "Summoning dream energy...",
-  "Loading magical picks...",
-  "Preparing your adventure...",
-  "Charging dream crystals...",
-  "Waking up the unicorns...",
-  "Sprinkling star dust...",
-];
-
-export function getRandomLoadingPhrase() {
-  return LOADING_PHRASES[Math.floor(Math.random() * LOADING_PHRASES.length)];
 }

@@ -1,12 +1,9 @@
 import { motion } from 'framer-motion';
 import { img } from '../utils/assets';
-
-function promptToTitle(prompt) {
-  const lower = prompt.toLowerCase();
-  return lower.charAt(0).toUpperCase() + lower.slice(1);
-}
+import { useI18n, questionTitle } from '../i18n/i18n';
 
 export default function DailyPickCard({ question, streak, done, onPlay }) {
+  const { t } = useI18n();
   if (!question) return null;
 
   return (
@@ -33,14 +30,14 @@ export default function DailyPickCard({ question, streak, done, onPlay }) {
       </div>
       <div className="flex-1 flex flex-col" style={{ gap: 'var(--sp-4)' }}>
         <span className="text-white/80 font-bold uppercase tracking-wide" style={{ fontSize: 'var(--text-xs)' }}>
-          📅 Daily Pick
+          {t('daily.label')}
         </span>
         <span className="text-white font-bold" style={{ fontSize: 'var(--text-lg)' }}>
-          {promptToTitle(question.prompt)}
+          {questionTitle(t, question.prompt)}
         </span>
         <span className="text-white/80" style={{ fontSize: 'var(--text-sm)' }}>
-          {done ? '✅ Done today! Come back tomorrow' : 'Same pick for everyone today'}
-          {streak > 0 && ` · 🔥 ${streak}-day streak`}
+          {done ? t('daily.done') : t('daily.same')}
+          {streak > 0 && t('daily.streak', { count: streak })}
         </span>
       </div>
     </motion.button>

@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { img } from '../utils/assets';
+import { useI18n } from '../i18n/i18n';
 
 export default function MysteryCard({ option, index, isSelected, isDisabled, isRevealed, onSelect }) {
+  const { t } = useI18n();
   const [flipped, setFlipped] = useState(false);
   const isChosen = isSelected === index;
   const otherChosen = isSelected !== null && !isChosen;
@@ -52,7 +54,7 @@ export default function MysteryCard({ option, index, isSelected, isDisabled, isR
               >
                 <img
                   src={img('mystery_box.png')}
-                  alt="Mystery"
+                  alt={t('card.mysteryAlt')}
                   className="w-4/5 h-4/5 object-contain drop-shadow-lg"
                 />
               </div>
@@ -63,7 +65,7 @@ export default function MysteryCard({ option, index, isSelected, isDisabled, isR
             <div className="card-back w-full h-full">
               <img
                 src={img(option.image)}
-                alt="Mystery Revealed"
+                alt={t('card.mysteryRevealed')}
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-black/20 pointer-events-none" />
@@ -79,7 +81,7 @@ export default function MysteryCard({ option, index, isSelected, isDisabled, isR
           transition={{ repeat: Infinity, duration: 2 }}
           className="dp-card-label"
         >
-          MYSTERY 🎁
+          {t('card.mystery')}
         </motion.div>
       )}
 
@@ -89,7 +91,7 @@ export default function MysteryCard({ option, index, isSelected, isDisabled, isR
           animate={{ scale: 1 }}
           className="dp-card-label"
         >
-          PICKED! ✨
+          {t('card.picked')}
         </motion.div>
       )}
     </motion.button>

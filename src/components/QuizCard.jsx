@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import { img } from '../utils/assets';
+import { useI18n } from '../i18n/i18n';
 
 export default function QuizCard({ option, index, isSelected, isDisabled, onSelect, theme }) {
+  const { t } = useI18n();
   const isChosen = isSelected === index;
   const otherChosen = isSelected !== null && !isChosen;
 
@@ -56,7 +58,7 @@ export default function QuizCard({ option, index, isSelected, isDisabled, onSele
           transition={{ type: 'spring', stiffness: 400 }}
           className="dp-card-label"
         >
-          PICKED! ✨
+          {t('card.picked')}
         </motion.div>
       )}
     </motion.button>

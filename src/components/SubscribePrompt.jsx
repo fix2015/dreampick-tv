@@ -2,8 +2,10 @@ import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { img } from '../utils/assets';
 import YouTubeLink from './YouTubeLink';
+import { useI18n } from '../i18n/i18n';
 
 export default function SubscribePrompt({ show, onDismiss, play }) {
+  const { t } = useI18n();
   useEffect(() => {
     if (show) play('subscribeAppear');
   }, [show, play]);
@@ -48,10 +50,10 @@ export default function SubscribePrompt({ show, onDismiss, play }) {
           <div className="flex flex-col items-center" style={{ gap: 'var(--sp-16)' }}>
             <div style={{ fontSize: '48px' }}>🌟</div>
             <h2 className="font-bold text-gray-800" style={{ fontSize: 'var(--text-2xl)' }}>
-              You're doing amazing!
+              {t('subscribe.title')}
             </h2>
             <p className="text-gray-600" style={{ fontSize: 'var(--text-base)' }}>
-              Want more Dream Picks? Subscribe to DreamPick TV on YouTube for new quizzes every week!
+              {t('subscribe.body')}
             </p>
 
             <div className="flex flex-col w-full" style={{ gap: 'var(--sp-12)', marginTop: 'var(--sp-8)' }}>
@@ -59,7 +61,7 @@ export default function SubscribePrompt({ show, onDismiss, play }) {
                 className="dp-btn w-full inline-block no-underline text-center"
                 style={{ background: 'linear-gradient(135deg, var(--color-youtube), var(--color-youtube-dark))' }}
               >
-                Subscribe 🔔
+                {t('subscribe.button')}
               </YouTubeLink>
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -72,7 +74,7 @@ export default function SubscribePrompt({ show, onDismiss, play }) {
                 }}
                 onClick={onDismiss}
               >
-                Keep Playing ➜
+                {t('subscribe.keepPlaying')}
               </motion.button>
             </div>
           </div>

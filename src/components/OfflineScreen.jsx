@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react';
+import { useI18n } from '../i18n/i18n';
 
 export default function OfflineScreen({ checking, onRetry }) {
+  const { t } = useI18n();
   const buttonRef = useRef(null);
 
   useEffect(() => {
@@ -17,10 +19,10 @@ export default function OfflineScreen({ checking, onRetry }) {
     >
       <div style={{ fontSize: '64px' }} aria-hidden="true">📡</div>
       <h1 id="offline-title" className="font-bold text-white" style={{ fontSize: 'var(--text-2xl)', maxWidth: '420px' }}>
-        DreamPick needs internet to load pictures
+        {t('offline.title')}
       </h1>
       <p className="text-white/80" style={{ fontSize: 'var(--text-base)', maxWidth: '420px' }}>
-        Check your Wi-Fi or mobile data, then try again.
+        {t('offline.body')}
       </p>
       <button
         ref={buttonRef}
@@ -30,7 +32,7 @@ export default function OfflineScreen({ checking, onRetry }) {
         className="dp-btn"
         style={{ background: 'linear-gradient(135deg, var(--color-gold), var(--color-gold-dark))', opacity: checking ? 0.7 : 1 }}
       >
-        {checking ? 'Checking…' : 'Retry 🔄'}
+        {checking ? t('offline.checking') : t('offline.retry')}
       </button>
     </div>
   );

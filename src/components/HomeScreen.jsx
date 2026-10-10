@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { loadProgress } from '../utils/storage';
 import { loadDaily, currentStreak, isDailyDone } from '../utils/daily';
 import DailyPickCard from './DailyPickCard';
+import LanguagePicker from './LanguagePicker';
+import { useI18n } from '../i18n/i18n';
 
 const CATEGORY_COLORS = {
   dream_bedroom: '#7B68EE',
@@ -19,12 +21,13 @@ const CATEGORY_COLORS = {
 };
 
 export default function HomeScreen({ categories, dailyQuestion, onStartGame }) {
+  const { t } = useI18n();
   const progress = loadProgress();
   const daily = loadDaily();
   const [playerCount, setPlayerCount] = useState(1);
   const allCategories = [
     ...categories,
-    { id: 'random_mix', name: 'Random Mix', emoji: '🎲', questionCount: 10 },
+    { id: 'random_mix', emoji: '🎲', questionCount: 10 },
   ];
 
   return (
@@ -49,7 +52,7 @@ export default function HomeScreen({ categories, dailyQuestion, onStartGame }) {
           className="text-white/90 font-medium"
           style={{ fontSize: 'var(--text-lg)', marginTop: 'var(--sp-8)' }}
         >
-          Pick your dreams! 🎮
+          {t('home.tagline')}
         </p>
       </motion.div>
 
@@ -61,10 +64,10 @@ export default function HomeScreen({ categories, dailyQuestion, onStartGame }) {
           className="flex flex-wrap justify-center text-white/90 font-medium"
           style={{ gap: 'var(--sp-16)', marginBottom: 'var(--sp-24)', fontSize: 'var(--text-sm)' }}
         >
-          <span>⭐ {progress.totalStars} Stars</span>
-          <span>🎮 {progress.totalGamesPlayed} Games</span>
-          <span>🍀 {progress.luckyPicks} Lucky Picks</span>
-          <span>💎 {progress.rareFinds} Rares</span>
+          <span>{t('home.stats.stars', { count: progress.totalStars })}</span>
+          <span>{t('home.stats.games', { count: progress.totalGamesPlayed })}</span>
+          <span>{t('home.stats.lucky', { count: progress.luckyPicks })}</span>
+          <span>{t('home.stats.rares', { count: progress.rareFinds })}</span>
         </motion.div>
       )}
 
@@ -78,7 +81,7 @@ export default function HomeScreen({ categories, dailyQuestion, onStartGame }) {
       {/* Player mode: solo or pass-and-play */}
       <div
         role="radiogroup"
-        aria-label="Players"
+        aria-label={t('home.players')}
         className="dp-glass flex"
         style={{ padding: 'var(--sp-4)', gap: 'var(--sp-4)', marginBottom: 'var(--sp-16)' }}
       >
@@ -99,7 +102,7 @@ export default function HomeScreen({ categories, dailyQuestion, onStartGame }) {
               color: playerCount === n ? '#6D28D9' : 'white',
             }}
           >
-            {n === 1 ? '🙋 1 Player' : '👯 2 Players (pass & play)'}
+            {n === 1 ? t('home.onePlayer') : t('home.twoPlayers')}
           </button>
         ))}
       </div>
@@ -134,10 +137,10 @@ export default function HomeScreen({ categories, dailyQuestion, onStartGame }) {
               className="text-white font-bold text-center leading-tight"
               style={{ fontSize: 'var(--text-sm)' }}
             >
-              {cat.name}
+              {t(`category.${cat.id}`)}
             </span>
             <span className="text-white/60" style={{ fontSize: 'var(--text-xs)' }}>
-              {cat.questionCount} picks
+              {t('home.picks', { count: cat.questionCount })}
             </span>
           </motion.button>
         ))}
@@ -151,8 +154,10 @@ export default function HomeScreen({ categories, dailyQuestion, onStartGame }) {
         className="text-white/60"
         style={{ marginTop: 'var(--sp-32)', fontSize: 'var(--text-sm)' }}
       >
-        Made with ❤️ by DreamPick TV
+        {t('home.footer')}
       </motion.p>
+
+      <LanguagePicker />
     </div>
   );
 }

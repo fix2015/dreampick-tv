@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { createSummaryImage, shareImage } from '../utils/shareImage';
 import { getRarityColor } from '../utils/helpers';
+import { useI18n } from '../i18n/i18n';
 
 export default function ShareButton({ sessionItems, sessionStars }) {
+  const { t } = useI18n();
   const [status, setStatus] = useState('idle'); // idle | working | done | saved | error
 
   const handleShare = async () => {
@@ -12,13 +14,13 @@ export default function ShareButton({ sessionItems, sessionStars }) {
       const blob = await createSummaryImage({
         items: sessionItems,
         stars: sessionStars,
-        title: 'My Dream Picks ✨',
-        subtitle: `${sessionItems.length} dreams collected`,
+        title: t('share.imageTitle'),
+        subtitle: t('share.imageSubtitle', { count: sessionItems.length }),
         rarityColor: getRarityColor,
       });
       const result = await shareImage(blob, {
-        title: 'My DreamPick TV dreams',
-        text: 'Look at my dream picks on DreamPick TV!',
+        title: t('share.title'),
+        text: t('share.text'),
       });
       setStatus({ cancelled: 'idle', downloaded: 'saved' }[result] || 'done');
     } catch {
@@ -27,11 +29,11 @@ export default function ShareButton({ sessionItems, sessionStars }) {
   };
 
   const label = {
-    idle: 'Share My Dreams 📤',
-    working: 'Making picture…',
-    done: 'Shared! 📤',
-    saved: 'Saved! ⬇️',
-    error: 'Could not share 😕',
+    idle: t('share.button'),
+    working: t('share.working'),
+    done: t('share.done'),
+    saved: t('share.saved'),
+    error: t('share.error'),
   }[status];
 
   return (

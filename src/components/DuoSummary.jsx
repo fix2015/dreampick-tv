@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import { img } from '../utils/assets';
-import { promptNoun, duoAgreed } from '../utils/duo';
+import { duoAgreed } from '../utils/duo';
+import { useI18n, questionNoun } from '../i18n/i18n';
 
 export default function DuoSummary({ results }) {
+  const { t } = useI18n();
   const agreedCount = results.filter(duoAgreed).length;
 
   return (
@@ -15,12 +17,12 @@ export default function DuoSummary({ results }) {
       aria-labelledby="duo-summary-title"
     >
       <h2 id="duo-summary-title" className="text-white font-bold text-center" style={{ fontSize: 'var(--text-xl)' }}>
-        👯 You agreed on {agreedCount} of {results.length} picks!
+        {t('duo.summary', { agreed: agreedCount, total: results.length })}
       </h2>
       <ul className="flex flex-col" style={{ gap: 'var(--sp-8)' }}>
         {results.map((r) => {
           const agreed = duoAgreed(r);
-          const noun = promptNoun(r.prompt);
+          const noun = questionNoun(t, r.prompt);
           return (
             <li key={r.questionId} className="flex items-center" style={{ gap: 'var(--sp-12)' }}>
               <div className="flex shrink-0" style={{ gap: 'var(--sp-4)' }} aria-hidden="true">
@@ -30,7 +32,7 @@ export default function DuoSummary({ results }) {
                 )}
               </div>
               <span className="text-white" style={{ fontSize: 'var(--text-sm)' }}>
-                {agreed ? `🤝 You both picked the ${noun}!` : `🙃 Different picks for the ${noun}`}
+                {t(agreed ? 'duo.agreed' : 'duo.different', { noun })}
               </span>
             </li>
           );
