@@ -171,5 +171,14 @@
   "noun.treehouse kitchen": "kuchnia w domku na drzewie",
   "noun.vintage car": "auto retro",
   "noun.weapon": "broń",
-  "noun.window view": "widok z okna"
+  "noun.window view": "widok z okna",
+  "card.option": "{title}, opcja {n} z {total}",
+  "card.optionMystery": "{title}, karta niespodzianka, opcja {n} z {total}",
+  "timer.label": "Odliczanie do odkrycia",
+  "timer.seconds": {
+    "one": "Odkrycie za {count} sekundę",
+    "few": "Odkrycie za {count} sekundy",
+    "many": "Odkrycie za {count} sekund",
+    "other": "Odkrycie za {count} sekundy"
+  }
 }

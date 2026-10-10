@@ -173,5 +173,14 @@
   "noun.treehouse kitchen": "кухня в будиночку на дереві",
   "noun.vintage car": "ретро-авто",
   "noun.weapon": "зброя",
-  "noun.window view": "вид з вікна"
+  "noun.window view": "вид з вікна",
+  "card.option": "{title}, варіант {n} з {total}",
+  "card.optionMystery": "{title}, картка-сюрприз, варіант {n} з {total}",
+  "timer.label": "Відлік до відкриття",
+  "timer.seconds": {
+    "one": "Відкриття через {count} секунду",
+    "few": "Відкриття через {count} секунди",
+    "many": "Відкриття через {count} секунд",
+    "other": "Відкриття через {count} секунди"
+  }
 }

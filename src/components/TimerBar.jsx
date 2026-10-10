@@ -1,10 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { useI18n } from '../i18n/i18n';
 
 const TIMER_DURATION = 3000;
 
 export default function TimerBar({ isActive, onComplete, theme, play }) {
+  const { t } = useI18n();
   const [progress, setProgress] = useState(0);
+  const [secondsLeft, setSecondsLeft] = useState(null);
   const tickedSeconds = useRef(new Set());
 
   useEffect(() => {
@@ -24,6 +27,7 @@ export default function TimerBar({ isActive, onComplete, theme, play }) {
       if (sec <= 3 && !ticked.has(sec)) {
         ticked.add(sec);
         play('countdownTick');
+        setSecondsLeft(4 - sec);
       }
 
       if (pct >= 1) {
@@ -38,16 +42,30 @@ export default function TimerBar({ isActive, onComplete, theme, play }) {
       cancelAnimationFrame(frame);
       ticked.clear();
       setProgress(0);
+      setSecondsLeft(null);
     };
   }, [isActive, onComplete, play]);
 
-  if (!isActive) return null;
+  // Live region stays mounted so screen readers announce each second
+  const announcement = (
+    <div role="status" aria-live="assertive" aria-atomic="true" className="sr-only">
+      {isActive && secondsLeft ? t('timer.seconds', { count: secondsLeft }) : ''}
+    </div>
+  );
+
+  if (!isActive) return announcement;
 
   return (
     <div className="w-full" style={{ maxWidth: '320px', padding: '0 var(--safe-inset)' }}>
+      {announcement}
       <div className="flex items-center" style={{ gap: 'var(--sp-8)' }}>
-        <span style={{ fontSize: '20px' }}>🦄</span>
+        <span style={{ fontSize: '20px' }} aria-hidden="true">🦄</span>
         <div
+          role="progressbar"
+          aria-label={t('timer.label')}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={Math.round(progress * 100)}
           className="flex-1 rounded-full bg-white/20 overflow-hidden border-2 border-white/40 shadow-inner"
           style={{ height: '14px' }}
         >
@@ -63,7 +81,7 @@ export default function TimerBar({ isActive, onComplete, theme, play }) {
             )}
           </motion.div>
         </div>
-        <span style={{ fontSize: '20px' }}>✨</span>
+        <span style={{ fontSize: '20px' }} aria-hidden="true">✨</span>
       </div>
     </div>
   );

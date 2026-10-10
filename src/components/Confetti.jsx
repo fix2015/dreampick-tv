@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useReducedMotion } from '../hooks/useReducedMotion';
 
 const COLORS = ['#FF6B6B', '#FBBF24', '#34D399', '#60A5FA', '#A78BFA', '#F472B6', '#FB923C'];
 
@@ -16,8 +17,9 @@ function makePieces(count) {
 
 export default function Confetti({ active, count = 40 }) {
   const pieces = useMemo(() => makePieces(count), [count]);
+  const reduceMotion = useReducedMotion();
 
-  if (!active) return null;
+  if (!active || reduceMotion) return null;
 
   return (
     <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden" aria-hidden="true">

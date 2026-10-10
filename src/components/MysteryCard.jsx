@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { img } from '../utils/assets';
 import { useI18n } from '../i18n/i18n';
 
-export default function MysteryCard({ option, index, isSelected, isDisabled, isRevealed, onSelect }) {
+export default function MysteryCard({ option, index, isSelected, isDisabled, isRevealed, onSelect, ariaLabel }) {
   const { t } = useI18n();
   const [flipped, setFlipped] = useState(false);
   const isChosen = isSelected === index;
@@ -32,6 +32,8 @@ export default function MysteryCard({ option, index, isSelected, isDisabled, isR
       transition={{ type: 'spring', stiffness: 300, damping: 20, delay: index * 0.1 }}
       onClick={() => !isDisabled && onSelect(index)}
       disabled={isDisabled}
+      aria-label={ariaLabel}
+      aria-pressed={isChosen}
       className="dp-card-wrapper cursor-pointer"
     >
       <div className="card-flip w-full" style={{ aspectRatio: '3/4' }}>
@@ -40,7 +42,7 @@ export default function MysteryCard({ option, index, isSelected, isDisabled, isR
           style={{ boxShadow: isChosen ? undefined : 'var(--shadow-card)' }}
         >
           {/* Number badge */}
-          <div className="dp-card-badge" style={{ backgroundColor: '#FBBF24' }}>?</div>
+          <div className="dp-card-badge" style={{ backgroundColor: '#FBBF24' }} aria-hidden="true">?</div>
 
           <div className={`card-flip-inner w-full h-full ${isRevealed && flipped ? 'flipped' : ''}`}>
             {/* Front - Mystery */}

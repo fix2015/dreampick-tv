@@ -168,5 +168,12 @@
   "noun.treehouse kitchen": "cocina de la casa del árbol",
   "noun.vintage car": "coche clásico",
   "noun.weapon": "arma",
-  "noun.window view": "vista desde la ventana"
+  "noun.window view": "vista desde la ventana",
+  "card.option": "{title}, opción {n} de {total}",
+  "card.optionMystery": "{title}, carta misteriosa, opción {n} de {total}",
+  "timer.label": "Cuenta atrás",
+  "timer.seconds": {
+    "one": "Se revela en {count} segundo",
+    "other": "Se revela en {count} segundos"
+  }
 }

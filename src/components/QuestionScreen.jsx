@@ -128,6 +128,11 @@ export default function QuestionScreen({
         {/* Cards row */}
         <div className="dp-card-row">
           {question.options.map((option, idx) => {
+            const ariaLabel = t(option.isMystery ? 'card.optionMystery' : 'card.option', {
+              title: questionTitle(t, question.prompt),
+              n: idx + 1,
+              total: question.options.length,
+            });
             if (option.isMystery) {
               return (
                 <MysteryCard
@@ -138,7 +143,7 @@ export default function QuestionScreen({
                   isDisabled={isDisabled}
                   isRevealed={isRevealed}
                   onSelect={onSelectCard}
-                  theme={theme}
+                  ariaLabel={ariaLabel}
                 />
               );
             }
@@ -151,6 +156,7 @@ export default function QuestionScreen({
                 isDisabled={isDisabled}
                 onSelect={onSelectCard}
                 theme={theme}
+                ariaLabel={ariaLabel}
               />
             );
           })}

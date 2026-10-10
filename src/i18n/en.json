@@ -97,5 +97,12 @@
   "share.title": "My DreamPick TV dreams",
   "share.text": "Look at my dream picks on DreamPick TV!",
   "mute.mute": "Mute",
-  "mute.unmute": "Unmute"
+  "mute.unmute": "Unmute",
+  "card.option": "{title}, option {n} of {total}",
+  "card.optionMystery": "{title}, mystery card, option {n} of {total}",
+  "timer.label": "Reveal countdown",
+  "timer.seconds": {
+    "one": "Revealing in {count} second",
+    "other": "Revealing in {count} seconds"
+  }
 }

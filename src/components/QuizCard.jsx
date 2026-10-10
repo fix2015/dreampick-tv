@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { img } from '../utils/assets';
 import { useI18n } from '../i18n/i18n';
 
-export default function QuizCard({ option, index, isSelected, isDisabled, onSelect, theme }) {
+export default function QuizCard({ option, index, isSelected, isDisabled, onSelect, theme, ariaLabel }) {
   const { t } = useI18n();
   const isChosen = isSelected === index;
   const otherChosen = isSelected !== null && !isChosen;
@@ -21,6 +21,8 @@ export default function QuizCard({ option, index, isSelected, isDisabled, onSele
       transition={{ type: 'spring', stiffness: 300, damping: 20, delay: index * 0.1 }}
       onClick={() => !isDisabled && onSelect(index)}
       disabled={isDisabled}
+      aria-label={ariaLabel}
+      aria-pressed={isChosen}
       className="dp-card-wrapper cursor-pointer"
     >
       <div
@@ -29,13 +31,13 @@ export default function QuizCard({ option, index, isSelected, isDisabled, onSele
       >
         <img
           src={img(option.image)}
-          alt={option.label}
+          alt={ariaLabel || option.label}
           className="w-full h-full object-cover"
           loading="eager"
         />
 
         {/* Number badge */}
-        <div className="dp-card-badge" style={{ backgroundColor: theme.badge }}>
+        <div className="dp-card-badge" style={{ backgroundColor: theme.badge }} aria-hidden="true">
           {index + 1}
         </div>
 
