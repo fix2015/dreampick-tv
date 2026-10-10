@@ -21,6 +21,8 @@ export default function QuestionScreen({
   onCountdownComplete,
   onCollectReward,
   onGoHome,
+  players = 1,
+  turn = 1,
   play,
 }) {
   const theme = getTheme(currentIndex);
@@ -168,7 +170,7 @@ export default function QuestionScreen({
             className="text-white/70 font-medium"
             style={{ fontSize: 'var(--text-base)' }}
           >
-            Tap a card to pick! 👆
+            {players === 2 ? `Player ${turn}, tap a card to pick! 👆` : 'Tap a card to pick! 👆'}
           </motion.p>
         )}
       </div>

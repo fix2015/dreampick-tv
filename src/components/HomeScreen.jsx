@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { loadProgress } from '../utils/storage';
 import { loadDaily, currentStreak, isDailyDone } from '../utils/daily';
@@ -20,6 +21,7 @@ const CATEGORY_COLORS = {
 export default function HomeScreen({ categories, dailyQuestion, onStartGame }) {
   const progress = loadProgress();
   const daily = loadDaily();
+  const [playerCount, setPlayerCount] = useState(1);
   const allCategories = [
     ...categories,
     { id: 'random_mix', name: 'Random Mix', emoji: '🎲', questionCount: 10 },
@@ -73,6 +75,35 @@ export default function HomeScreen({ categories, dailyQuestion, onStartGame }) {
         onPlay={() => onStartGame('daily')}
       />
 
+      {/* Player mode: solo or pass-and-play */}
+      <div
+        role="radiogroup"
+        aria-label="Players"
+        className="dp-glass flex"
+        style={{ padding: 'var(--sp-4)', gap: 'var(--sp-4)', marginBottom: 'var(--sp-16)' }}
+      >
+        {[1, 2].map(n => (
+          <button
+            key={n}
+            type="button"
+            role="radio"
+            aria-checked={playerCount === n}
+            onClick={() => setPlayerCount(n)}
+            className="font-bold cursor-pointer border-none"
+            style={{
+              padding: 'var(--sp-8) var(--sp-16)',
+              borderRadius: 'var(--radius-lg)',
+              fontSize: 'var(--text-sm)',
+              minHeight: '44px',
+              background: playerCount === n ? 'white' : 'transparent',
+              color: playerCount === n ? '#6D28D9' : 'white',
+            }}
+          >
+            {n === 1 ? '🙋 1 Player' : '👯 2 Players (pass & play)'}
+          </button>
+        ))}
+      </div>
+
       {/* Categories grid */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -88,7 +119,7 @@ export default function HomeScreen({ categories, dailyQuestion, onStartGame }) {
             transition={{ delay: 0.1 * i, type: 'spring' }}
             whileHover={{ scale: 1.08, y: -5 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => onStartGame(cat.id)}
+            onClick={() => onStartGame(cat.id, playerCount)}
             className="flex flex-col items-center cursor-pointer backdrop-blur-sm transition-shadow hover:shadow-xl"
             style={{
               gap: 'var(--sp-4)',

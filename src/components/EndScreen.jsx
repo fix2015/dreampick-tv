@@ -4,8 +4,9 @@ import { getRarityColor } from '../utils/helpers';
 import { img } from '../utils/assets';
 import Confetti from './Confetti';
 import YouTubeLink from './YouTubeLink';
+import DuoSummary from './DuoSummary';
 
-export default function EndScreen({ sessionItems, sessionStars, streak, onPlayAgain, onGoHome, play }) {
+export default function EndScreen({ sessionItems, duoResults, sessionStars, streak, onPlayAgain, onGoHome, play }) {
   useEffect(() => {
     play('confetti');
   }, [play]);
@@ -75,6 +76,8 @@ export default function EndScreen({ sessionItems, sessionStars, streak, onPlayAg
             </div>
           ))}
         </motion.div>
+
+        {duoResults && duoResults.length > 0 && <DuoSummary results={duoResults} />}
 
         {/* Collection gallery */}
         <motion.div

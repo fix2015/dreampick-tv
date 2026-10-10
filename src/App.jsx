@@ -5,6 +5,7 @@ import EndScreen from './components/EndScreen';
 import RewardPopup from './components/RewardPopup';
 import SubscribePrompt from './components/SubscribePrompt';
 import MuteButton from './components/MuteButton';
+import PassDevice from './components/PassDevice';
 import OfflineScreen from './components/OfflineScreen';
 import { useConnectivity } from './hooks/useConnectivity';
 import { useGameState } from './hooks/useGameState';
@@ -28,8 +29,12 @@ export default function App() {
     dreamEnergy,
     sessionStars,
     lastReward,
+    players,
+    turn,
+    duoResults,
     startGame,
     selectCard,
+    passToPlayer2,
     onCountdownComplete,
     collectReward,
     nextQuestion,
@@ -49,9 +54,9 @@ export default function App() {
     }
   }, [screen, startBgm, stopBgm]);
 
-  const handleStartGame = (categoryId) => {
+  const handleStartGame = (categoryId, playerCount = 1) => {
     play('buttonClick');
-    startGame(categoryId);
+    startGame(categoryId, playerCount);
   };
 
   const handleSelectCard = (cardIndex) => {
@@ -101,12 +106,19 @@ export default function App() {
             onCountdownComplete={onCountdownComplete}
             onCollectReward={collectReward}
             onGoHome={handleGoHome}
+            players={players}
+            turn={turn}
             play={play}
           />
+
+          {phase === 'pass' && (
+            <PassDevice onReady={() => { play('buttonClick'); passToPlayer2(); }} />
+          )}
 
           {phase === 'reward' && (
             <RewardPopup
               reward={lastReward}
+              duoResult={players === 2 ? duoResults[duoResults.length - 1] : null}
               onContinue={handleNextQuestion}
               play={play}
             />
@@ -123,9 +135,10 @@ export default function App() {
       {screen === 'end' && (
         <EndScreen
           sessionItems={sessionItems}
+          duoResults={players === 2 ? duoResults : null}
           sessionStars={sessionStars}
           streak={streak}
-          onPlayAgain={() => { play('buttonClick'); startGame(currentCategory); }}
+          onPlayAgain={() => { play('buttonClick'); startGame(currentCategory, players); }}
           onGoHome={handleGoHome}
           play={play}
         />

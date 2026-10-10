@@ -3,8 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { getRarityLabel, getRarityColor } from '../utils/helpers';
 import { img } from '../utils/assets';
 import Confetti from './Confetti';
+import { promptNoun, duoAgreed } from '../utils/duo';
 
-export default function RewardPopup({ reward, onContinue, play }) {
+export default function RewardPopup({ reward, duoResult, onContinue, play }) {
   useEffect(() => {
     if (!reward) return;
     if (reward.rarity === 'legendary') {
@@ -90,6 +91,14 @@ export default function RewardPopup({ reward, onContinue, play }) {
                 className="w-full h-full object-cover"
               />
             </motion.div>
+
+            {duoResult && (
+              <p className="font-bold" style={{ fontSize: 'var(--text-lg)', color: duoAgreed(duoResult) ? '#16A34A' : '#EA580C' }}>
+                {duoAgreed(duoResult)
+                  ? `🤝 You both picked the ${promptNoun(duoResult.prompt)}!`
+                  : `🙃 Different picks for the ${promptNoun(duoResult.prompt)}!`}
+              </p>
+            )}
 
             <h3 className="font-bold text-gray-800" style={{ fontSize: 'var(--text-base)' }}>
               {reward.prompt.replace('CHOOSE YOUR ', 'Your ')}

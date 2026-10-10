@@ -20,12 +20,17 @@ export function useGameState() {
   const [dreamEnergy, setDreamEnergy] = useState(0);
   const [sessionStars, setSessionStars] = useState(0);
   const [lastReward, setLastReward] = useState(null);
+  // Pass-and-play (2 players answer the same question)
+  const [players, setPlayers] = useState(1);
+  const [turn, setTurn] = useState(1);
+  const [firstPick, setFirstPick] = useState(null);
+  const [duoResults, setDuoResults] = useState([]);
   const questionsAnswered = useRef(0);
 
   const categories = gameData.categories;
   const dailyQuestion = getDailyQuestion(gameData.questions);
 
-  const startGame = useCallback((categoryId) => {
+  const startGame = useCallback((categoryId, playerCount = 1) => {
     let pool;
     if (categoryId === 'daily') {
       pool = [getDailyQuestion(gameData.questions)];
@@ -46,15 +51,29 @@ export function useGameState() {
     setSessionStars(0);
     setShowSubscribe(false);
     setLastReward(null);
+    setPlayers(categoryId === 'daily' ? 1 : playerCount);
+    setTurn(1);
+    setFirstPick(null);
+    setDuoResults([]);
     questionsAnswered.current = 0;
     setScreen('game');
   }, []);
 
   const selectCard = useCallback((cardIndex) => {
     if (phase !== 'choosing') return;
+    if (players === 2 && turn === 1) {
+      setFirstPick(cardIndex);
+      setPhase('pass');
+      return;
+    }
     setSelectedCard(cardIndex);
     setPhase('countdown');
-  }, [phase]);
+  }, [phase, players, turn]);
+
+  const passToPlayer2 = useCallback(() => {
+    setTurn(2);
+    setPhase('choosing');
+  }, []);
 
   const onCountdownComplete = useCallback(() => {
     setPhase('reveal');
@@ -84,6 +103,18 @@ export function useGameState() {
       categoryId: question.categoryId,
     };
 
+    if (players === 2) {
+      const options = question.options;
+      setDuoResults(prev => [...prev, {
+        questionId: question.id,
+        prompt: question.prompt,
+        p1: firstPick,
+        p2: selectedCard,
+        p1Image: options[firstPick].image,
+        p2Image: options[selectedCard].image,
+      }]);
+    }
+
     setLastReward(item);
     setSessionItems(prev => [...prev, item]);
     setSessionStars(prev => prev + totalStars);
@@ -92,7 +123,7 @@ export function useGameState() {
     addCollectedItem(item);
 
     setPhase('reward');
-  }, [questions, currentIndex, selectedCard]);
+  }, [questions, currentIndex, selectedCard, players, firstPick]);
 
   const finishGame = useCallback(() => {
     markGameComplete(streak);
@@ -118,6 +149,8 @@ export function useGameState() {
     setSelectedCard(null);
     setPhase('choosing');
     setLastReward(null);
+    setTurn(1);
+    setFirstPick(null);
   }, [currentIndex, questions.length, finishGame]);
 
   const dismissSubscribe = useCallback(() => {
@@ -130,6 +163,8 @@ export function useGameState() {
     setSelectedCard(null);
     setPhase('choosing');
     setLastReward(null);
+    setTurn(1);
+    setFirstPick(null);
   }, [currentIndex, questions.length, finishGame]);
 
   const goHome = useCallback(() => {
@@ -155,9 +190,13 @@ export function useGameState() {
     dreamEnergy,
     sessionStars,
     lastReward,
+    players,
+    turn,
+    duoResults,
     progress,
     startGame,
     selectCard,
+    passToPlayer2,
     onCountdownComplete,
     collectReward,
     nextQuestion,
