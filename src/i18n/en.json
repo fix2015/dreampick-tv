@@ -8,8 +8,14 @@
     "one": "🎮 {count} Game",
     "other": "🎮 {count} Games"
   },
-  "home.stats.lucky": "🍀 {count} Lucky Picks",
-  "home.stats.rares": "💎 {count} Rares",
+  "home.stats.lucky": {
+    "one": "🍀 {count} Lucky Pick",
+    "other": "🍀 {count} Lucky Picks"
+  },
+  "home.stats.rares": {
+    "one": "💎 {count} Rare",
+    "other": "💎 {count} Rares"
+  },
   "home.players": "Players",
   "home.onePlayer": "🙋 1 Player",
   "home.twoPlayers": "👯 2 Players (pass & play)",
