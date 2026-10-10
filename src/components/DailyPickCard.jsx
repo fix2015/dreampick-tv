@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { img } from '../utils/assets';
 import { useI18n, questionTitle } from '../i18n/i18n';
 
@@ -7,7 +7,7 @@ export default function DailyPickCard({ question, streak, done, onPlay }) {
   if (!question) return null;
 
   return (
-    <motion.button
+    <m.button
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.2 }}
@@ -40,6 +40,6 @@ export default function DailyPickCard({ question, streak, done, onPlay }) {
           {streak > 0 && t('daily.streak', { count: streak })}
         </span>
       </div>
-    </motion.button>
+    </m.button>
   );
 }

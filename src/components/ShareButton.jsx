@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { createSummaryImage, shareImage } from '../utils/shareImage';
 import { getRarityColor } from '../utils/helpers';
 import { useI18n } from '../i18n/i18n';
@@ -37,7 +37,7 @@ export default function ShareButton({ sessionItems, sessionStars }) {
   }[status];
 
   return (
-    <motion.button
+    <m.button
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       onClick={handleShare}
@@ -47,6 +47,6 @@ export default function ShareButton({ sessionItems, sessionStars }) {
       style={{ background: 'linear-gradient(135deg, #10B981, #059669)' }}
     >
       <span aria-live="polite">{label}</span>
-    </motion.button>
+    </m.button>
   );
 }

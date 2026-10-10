@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import QuizCard from './QuizCard';
 import MysteryCard from './MysteryCard';
 import TimerBar from './TimerBar';
@@ -73,7 +73,7 @@ export default function QuestionScreen({
       </div>
 
       {/* Back button — top left */}
-      <motion.button
+      <m.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={onGoHome}
@@ -89,7 +89,7 @@ export default function QuestionScreen({
         aria-label={t('question.back')}
       >
         ←
-      </motion.button>
+      </m.button>
 
       {/* Main content */}
       <div
@@ -107,7 +107,7 @@ export default function QuestionScreen({
         />
 
         {/* Question prompt */}
-        <motion.div
+        <m.div
           key={question.id}
           initial={{ opacity: 0, y: -20, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -123,7 +123,7 @@ export default function QuestionScreen({
           >
             {questionTitle(t, question.prompt).toUpperCase()}
           </h2>
-        </motion.div>
+        </m.div>
 
         {/* Cards row */}
         <div className="dp-card-row">
@@ -172,7 +172,7 @@ export default function QuestionScreen({
 
         {/* Instruction text */}
         {phase === 'choosing' && (
-          <motion.p
+          <m.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
@@ -180,7 +180,7 @@ export default function QuestionScreen({
             style={{ fontSize: 'var(--text-base)' }}
           >
             {players === 2 ? t('question.playerTurn', { player: turn }) : t('question.tapToPick')}
-          </motion.p>
+          </m.p>
         )}
       </div>
     </div>

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useI18n } from '../i18n/i18n';
 
 /** Hand-over screen between Player 1 and Player 2 (hides Player 1's pick). */
@@ -23,7 +23,7 @@ export default function PassDevice({ onReady }) {
       <p className="text-white/80" style={{ fontSize: 'var(--text-lg)' }}>
         {t('pass.body')}
       </p>
-      <motion.button
+      <m.button
         ref={buttonRef}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -32,7 +32,7 @@ export default function PassDevice({ onReady }) {
         style={{ background: 'linear-gradient(135deg, var(--color-gold), var(--color-gold-dark))' }}
       >
         {t('pass.ready')}
-      </motion.button>
+      </m.button>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 export default function ProgressHUD({ currentIndex, totalQuestions, stars, streak, dreamEnergy, theme }) {
   return (
@@ -19,7 +19,7 @@ export default function ProgressHUD({ currentIndex, totalQuestions, stars, strea
       </span>
 
       {/* Stars */}
-      <motion.div
+      <m.div
         key={stars}
         initial={{ scale: 1.3 }}
         animate={{ scale: 1 }}
@@ -28,11 +28,11 @@ export default function ProgressHUD({ currentIndex, totalQuestions, stars, strea
       >
         <span>⭐</span>
         <span>{stars}</span>
-      </motion.div>
+      </m.div>
 
       {/* Streak */}
       {streak > 1 && (
-        <motion.div
+        <m.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           className="flex items-center text-white font-bold"
@@ -40,7 +40,7 @@ export default function ProgressHUD({ currentIndex, totalQuestions, stars, strea
         >
           <span>🔥</span>
           <span>{streak}</span>
-        </motion.div>
+        </m.div>
       )}
 
       {/* Dream Energy bar */}
@@ -50,7 +50,7 @@ export default function ProgressHUD({ currentIndex, totalQuestions, stars, strea
           className="rounded-full bg-white/20 overflow-hidden"
           style={{ width: '80px', height: '10px' }}
         >
-          <motion.div
+          <m.div
             className="h-full rounded-full"
             style={{ backgroundColor: 'var(--color-gold)' }}
             initial={false}

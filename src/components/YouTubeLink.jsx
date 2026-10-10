@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import ParentalGate from './ParentalGate';
 import { isNativePlatform, openInSystemBrowser } from '../utils/platform';
 
@@ -26,7 +26,7 @@ export default function YouTubeLink({ className, style, children }) {
 
   return (
     <>
-      <motion.a
+      <m.a
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         href={YOUTUBE_URL}
@@ -37,7 +37,7 @@ export default function YouTubeLink({ className, style, children }) {
         style={style}
       >
         {children}
-      </motion.a>
+      </m.a>
       {gateOpen && (
         <ParentalGate onPass={handlePass} onCancel={() => setGateOpen(false)} />
       )}

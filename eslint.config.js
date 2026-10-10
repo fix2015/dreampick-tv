@@ -23,8 +23,8 @@ export default defineConfig([
       },
     },
     rules: {
-      // `motion` is only referenced as <motion.div> member JSX, which core no-unused-vars misses
-      'no-unused-vars': ['error', { varsIgnorePattern: '^(?:[A-Z_]|motion$)' }],
+      // framer-motion's `m` is only referenced as <m.div> member JSX, which core no-unused-vars misses
+      'no-unused-vars': ['error', { varsIgnorePattern: '^(?:[A-Z_]|m$)' }],
     },
   },
   {

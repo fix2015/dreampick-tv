@@ -1,7 +1,8 @@
-import { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import { shuffleArray, determineRarity, getStarsForRarity } from '../utils/helpers';
 import { addCollectedItem, markGameComplete, loadProgress } from '../utils/storage';
 import { getDailyQuestion, recordDailyPlayed } from '../utils/daily';
+import { preloadImages, questionImagePaths } from '../utils/preload';
 import gameData from '../data/questions.json';
 
 const QUESTIONS_PER_GAME = 10;
@@ -26,20 +27,36 @@ export function useGameState() {
   const [firstPick, setFirstPick] = useState(null);
   const [duoResults, setDuoResults] = useState([]);
   const questionsAnswered = useRef(0);
+  // Games drawn ahead of time (per category) so the first question's images can be preloaded
+  const preparedGames = useRef(new Map());
 
   const categories = gameData.categories;
   const dailyQuestion = getDailyQuestion(gameData.questions);
 
-  const startGame = useCallback((categoryId, playerCount = 1) => {
-    let pool;
-    if (categoryId === 'daily') {
-      pool = [getDailyQuestion(gameData.questions)];
-    } else if (categoryId === 'random_mix') {
-      pool = shuffleArray(gameData.questions);
-    } else {
-      pool = shuffleArray(gameData.questions.filter(q => q.categoryId === categoryId));
+  const prepareGame = useCallback((categoryId) => {
+    const prepared = preparedGames.current;
+    if (!prepared.has(categoryId)) {
+      let pool;
+      if (categoryId === 'daily') {
+        pool = [getDailyQuestion(gameData.questions)];
+      } else if (categoryId === 'random_mix') {
+        pool = shuffleArray(gameData.questions);
+      } else {
+        pool = shuffleArray(gameData.questions.filter(q => q.categoryId === categoryId));
+      }
+      prepared.set(categoryId, pool.slice(0, Math.min(QUESTIONS_PER_GAME, pool.length)));
     }
-    const selected = pool.slice(0, Math.min(QUESTIONS_PER_GAME, pool.length));
+    return prepared.get(categoryId);
+  }, []);
+
+  /** Draw the category's next game now and preload its first question's images. */
+  const preloadFirstQuestion = useCallback((categoryId) => {
+    preloadImages(questionImagePaths(prepareGame(categoryId)[0]));
+  }, [prepareGame]);
+
+  const startGame = useCallback((categoryId, playerCount = 1) => {
+    const selected = prepareGame(categoryId);
+    preparedGames.current.delete(categoryId); // next round gets a fresh shuffle
     setQuestions(selected);
     setCurrentIndex(0);
     setCurrentCategory(categoryId);
@@ -57,7 +74,7 @@ export function useGameState() {
     setDuoResults([]);
     questionsAnswered.current = 0;
     setScreen('game');
-  }, []);
+  }, [prepareGame]);
 
   const selectCard = useCallback((cardIndex) => {
     if (phase !== 'choosing') return;
@@ -171,6 +188,12 @@ export function useGameState() {
     setScreen('home');
   }, []);
 
+  // Warm the cache for the upcoming question while the current one is played
+  const upcomingQuestion = questions[currentIndex + 1];
+  useEffect(() => {
+    preloadImages(questionImagePaths(upcomingQuestion));
+  }, [upcomingQuestion]);
+
   const currentQuestion = questions[currentIndex] || null;
   const progress = loadProgress();
 
@@ -195,6 +218,7 @@ export function useGameState() {
     duoResults,
     progress,
     startGame,
+    preloadFirstQuestion,
     selectCard,
     passToPlayer2,
     onCountdownComplete,

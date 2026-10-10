@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { getRarityColor } from '../utils/helpers';
 import { img } from '../utils/assets';
 import Confetti from './Confetti';
@@ -33,7 +33,7 @@ export default function EndScreen({ sessionItems, duoResults, sessionStars, stre
         style={{ maxWidth: '640px', gap: 'var(--sp-24)' }}
       >
         {/* Title */}
-        <motion.div
+        <m.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ type: 'spring', stiffness: 200, damping: 15 }}
@@ -52,10 +52,10 @@ export default function EndScreen({ sessionItems, duoResults, sessionStars, stre
           <p className="text-white/80" style={{ fontSize: 'var(--text-lg)' }}>
             {t('end.subtitle')}
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Stats row */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
@@ -78,12 +78,12 @@ export default function EndScreen({ sessionItems, duoResults, sessionStars, stre
               <div className="text-white/70" style={{ fontSize: 'var(--text-xs)' }}>{stat.label}</div>
             </div>
           ))}
-        </motion.div>
+        </m.div>
 
         {duoResults && duoResults.length > 0 && <DuoSummary results={duoResults} />}
 
         {/* Collection gallery */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
@@ -91,7 +91,7 @@ export default function EndScreen({ sessionItems, duoResults, sessionStars, stre
           style={{ gap: 'var(--sp-8)' }}
         >
           {sessionItems.map((item, i) => (
-            <motion.div
+            <m.div
               key={item.id}
               initial={{ scale: 0, rotate: -10 }}
               animate={{ scale: 1, rotate: 0 }}
@@ -122,19 +122,19 @@ export default function EndScreen({ sessionItems, duoResults, sessionStars, stre
                   {item.rarity === 'legendary' ? t('end.legendBadge') : t('end.rareBadge')}
                 </div>
               )}
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
 
         {/* Action buttons */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
           className="flex flex-col sm:flex-row justify-center w-full sm:w-auto"
           style={{ gap: 'var(--sp-12)' }}
         >
-          <motion.button
+          <m.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={onPlayAgain}
@@ -142,8 +142,8 @@ export default function EndScreen({ sessionItems, duoResults, sessionStars, stre
             style={{ background: 'linear-gradient(135deg, var(--color-gold), var(--color-gold-dark))' }}
           >
             {t('end.playAgain')}
-          </motion.button>
-          <motion.button
+          </m.button>
+          <m.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={onGoHome}
@@ -151,7 +151,7 @@ export default function EndScreen({ sessionItems, duoResults, sessionStars, stre
             style={{ background: 'linear-gradient(135deg, #8B5CF6, #7C3AED)' }}
           >
             {t('end.another')}
-          </motion.button>
+          </m.button>
           <ShareButton sessionItems={sessionItems} sessionStars={sessionStars} />
           <YouTubeLink
             className="dp-btn no-underline text-center"
@@ -159,7 +159,7 @@ export default function EndScreen({ sessionItems, duoResults, sessionStars, stre
           >
             {t('subscribe.button')}
           </YouTubeLink>
-        </motion.div>
+        </m.div>
       </div>
     </div>
   );

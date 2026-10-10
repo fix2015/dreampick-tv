@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { img } from '../utils/assets';
 import { duoAgreed } from '../utils/duo';
 import { useI18n, questionNoun } from '../i18n/i18n';
@@ -8,7 +8,7 @@ export default function DuoSummary({ results }) {
   const agreedCount = results.filter(duoAgreed).length;
 
   return (
-    <motion.section
+    <m.section
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.4 }}
@@ -38,6 +38,6 @@ export default function DuoSummary({ results }) {
           );
         })}
       </ul>
-    </motion.section>
+    </m.section>
   );
 }

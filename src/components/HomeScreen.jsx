@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { loadProgress } from '../utils/storage';
 import { loadDaily, currentStreak, isDailyDone } from '../utils/daily';
 import DailyPickCard from './DailyPickCard';
@@ -20,7 +20,7 @@ const CATEGORY_COLORS = {
   random_mix: '#FF6B6B',
 };
 
-export default function HomeScreen({ categories, dailyQuestion, onStartGame }) {
+export default function HomeScreen({ categories, dailyQuestion, onStartGame, onPrepareCategory = () => {} }) {
   const { t } = useI18n();
   const progress = loadProgress();
   const daily = loadDaily();
@@ -40,7 +40,7 @@ export default function HomeScreen({ categories, dailyQuestion, onStartGame }) {
       <div className="hidden md:block absolute bottom-36 right-12 text-4xl lg:text-5xl animate-float opacity-70" style={{ animationDelay: '0.5s' }}>🌈</div>
 
       {/* Title */}
-      <motion.div
+      <m.div
         initial={{ scale: 0, rotate: -10 }}
         animate={{ scale: 1, rotate: 0 }}
         transition={{ type: 'spring', stiffness: 200, damping: 15 }}
@@ -54,11 +54,11 @@ export default function HomeScreen({ categories, dailyQuestion, onStartGame }) {
         >
           {t('home.tagline')}
         </p>
-      </motion.div>
+      </m.div>
 
       {/* Stats bar */}
       {progress.totalGamesPlayed > 0 && (
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="flex flex-wrap justify-center text-white/90 font-medium"
@@ -68,7 +68,7 @@ export default function HomeScreen({ categories, dailyQuestion, onStartGame }) {
           <span>{t('home.stats.games', { count: progress.totalGamesPlayed })}</span>
           <span>{t('home.stats.lucky', { count: progress.luckyPicks })}</span>
           <span>{t('home.stats.rares', { count: progress.rareFinds })}</span>
-        </motion.div>
+        </m.div>
       )}
 
       <DailyPickCard
@@ -108,14 +108,14 @@ export default function HomeScreen({ categories, dailyQuestion, onStartGame }) {
       </div>
 
       {/* Categories grid */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
         className="dp-category-grid"
       >
         {allCategories.map((cat, i) => (
-          <motion.button
+          <m.button
             key={cat.id}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -123,6 +123,9 @@ export default function HomeScreen({ categories, dailyQuestion, onStartGame }) {
             whileHover={{ scale: 1.08, y: -5 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => onStartGame(cat.id, playerCount)}
+            onPointerEnter={() => onPrepareCategory(cat.id)}
+            onPointerDown={() => onPrepareCategory(cat.id)}
+            onFocus={() => onPrepareCategory(cat.id)}
             className="flex flex-col items-center cursor-pointer backdrop-blur-sm transition-shadow hover:shadow-xl"
             style={{
               gap: 'var(--sp-4)',
@@ -142,12 +145,12 @@ export default function HomeScreen({ categories, dailyQuestion, onStartGame }) {
             <span className="text-white/60" style={{ fontSize: 'var(--text-xs)' }}>
               {t('home.picks', { count: cat.questionCount })}
             </span>
-          </motion.button>
+          </m.button>
         ))}
-      </motion.div>
+      </m.div>
 
       {/* Footer */}
-      <motion.p
+      <m.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1 }}
@@ -155,7 +158,7 @@ export default function HomeScreen({ categories, dailyQuestion, onStartGame }) {
         style={{ marginTop: 'var(--sp-32)', fontSize: 'var(--text-sm)' }}
       >
         {t('home.footer')}
-      </motion.p>
+      </m.p>
 
       <LanguagePicker />
     </div>

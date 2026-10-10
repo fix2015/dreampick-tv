@@ -1,10 +1,10 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useI18n } from '../i18n/i18n';
 
 export default function MuteButton({ isMuted, onToggle }) {
   const { t } = useI18n();
   return (
-    <motion.button
+    <m.button
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       onClick={onToggle}
@@ -20,6 +20,6 @@ export default function MuteButton({ isMuted, onToggle }) {
       aria-label={isMuted ? t('mute.unmute') : t('mute.mute')}
     >
       {isMuted ? '🔇' : '🔊'}
-    </motion.button>
+    </m.button>
   );
 }

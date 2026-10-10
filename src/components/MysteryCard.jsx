@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { img } from '../utils/assets';
 import { useI18n } from '../i18n/i18n';
 
@@ -19,7 +19,7 @@ export default function MysteryCard({ option, index, isSelected, isDisabled, isR
   }, [isRevealed]);
 
   return (
-    <motion.button
+    <m.button
       layout
       initial={{ opacity: 0, y: 30, scale: 0.9 }}
       animate={{
@@ -78,24 +78,24 @@ export default function MysteryCard({ option, index, isSelected, isDisabled, isR
 
       {/* Mystery label — proper padding */}
       {!isRevealed && !isChosen && (
-        <motion.div
+        <m.div
           animate={{ scale: [1, 1.05, 1] }}
           transition={{ repeat: Infinity, duration: 2 }}
           className="dp-card-label"
         >
           {t('card.mystery')}
-        </motion.div>
+        </m.div>
       )}
 
       {isChosen && !isRevealed && (
-        <motion.div
+        <m.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           className="dp-card-label"
         >
           {t('card.picked')}
-        </motion.div>
+        </m.div>
       )}
-    </motion.button>
+    </m.button>
   );
 }

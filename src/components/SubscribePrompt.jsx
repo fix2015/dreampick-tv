@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { img } from '../utils/assets';
 import YouTubeLink from './YouTubeLink';
 import { useI18n } from '../i18n/i18n';
@@ -14,7 +14,7 @@ export default function SubscribePrompt({ show, onDismiss, play }) {
 
   return (
     <AnimatePresence>
-      <motion.div
+      <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -34,7 +34,7 @@ export default function SubscribePrompt({ show, onDismiss, play }) {
           <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
         </div>
 
-        <motion.div
+        <m.div
           initial={{ scale: 0.5, y: 50 }}
           animate={{ scale: 1, y: 0 }}
           exit={{ scale: 0.5, y: 50 }}
@@ -63,7 +63,7 @@ export default function SubscribePrompt({ show, onDismiss, play }) {
               >
                 {t('subscribe.button')}
               </YouTubeLink>
-              <motion.button
+              <m.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="w-full bg-gray-100 text-gray-600 font-bold cursor-pointer border-none"
@@ -75,11 +75,11 @@ export default function SubscribePrompt({ show, onDismiss, play }) {
                 onClick={onDismiss}
               >
                 {t('subscribe.keepPlaying')}
-              </motion.button>
+              </m.button>
             </div>
           </div>
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </AnimatePresence>
   );
 }

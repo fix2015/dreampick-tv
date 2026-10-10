@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { img } from '../utils/assets';
 import { useI18n } from '../i18n/i18n';
 
@@ -8,7 +8,7 @@ export default function QuizCard({ option, index, isSelected, isDisabled, onSele
   const otherChosen = isSelected !== null && !isChosen;
 
   return (
-    <motion.button
+    <m.button
       layout
       initial={{ opacity: 0, y: 30, scale: 0.9 }}
       animate={{
@@ -45,7 +45,7 @@ export default function QuizCard({ option, index, isSelected, isDisabled, onSele
         <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-black/20 pointer-events-none" />
 
         {isChosen && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="absolute inset-0 bg-yellow-300/20 pointer-events-none"
@@ -54,15 +54,15 @@ export default function QuizCard({ option, index, isSelected, isDisabled, onSele
       </div>
 
       {isChosen && (
-        <motion.div
+        <m.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ type: 'spring', stiffness: 400 }}
           className="dp-card-label"
         >
           {t('card.picked')}
-        </motion.div>
+        </m.div>
       )}
-    </motion.button>
+    </m.button>
   );
 }

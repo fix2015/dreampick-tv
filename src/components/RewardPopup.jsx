@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import { getRarityColor } from '../utils/helpers';
 import { img } from '../utils/assets';
 import Confetti from './Confetti';
@@ -31,7 +31,7 @@ export default function RewardPopup({ reward, duoResult, onContinue, play }) {
 
   return (
     <AnimatePresence>
-      <motion.div
+      <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -41,7 +41,7 @@ export default function RewardPopup({ reward, duoResult, onContinue, play }) {
       >
         <Confetti active={isLucky || isSpecial} count={isLucky ? 60 : 30} />
 
-        <motion.div
+        <m.div
           initial={{ scale: 0, rotate: -10 }}
           animate={{ scale: 1, rotate: 0 }}
           exit={{ scale: 0 }}
@@ -64,7 +64,7 @@ export default function RewardPopup({ reward, duoResult, onContinue, play }) {
 
           <div className="relative z-10 flex flex-col items-center" style={{ gap: 'var(--sp-12)' }}>
             {isLucky && (
-              <motion.div
+              <m.div
                 initial={{ y: -20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.2 }}
@@ -72,10 +72,10 @@ export default function RewardPopup({ reward, duoResult, onContinue, play }) {
                 style={{ fontSize: 'var(--text-xl)' }}
               >
                 {t('reward.lucky')}
-              </motion.div>
+              </m.div>
             )}
 
-            <motion.div
+            <m.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.1, type: 'spring' }}
@@ -92,7 +92,7 @@ export default function RewardPopup({ reward, duoResult, onContinue, play }) {
                 alt={reward.prompt}
                 className="w-full h-full object-cover"
               />
-            </motion.div>
+            </m.div>
 
             {duoResult && (
               <p className="font-bold" style={{ fontSize: 'var(--text-lg)', color: duoAgreed(duoResult) ? '#16A34A' : '#EA580C' }}>
@@ -104,7 +104,7 @@ export default function RewardPopup({ reward, duoResult, onContinue, play }) {
               {t('reward.your', { noun: questionNoun(t, reward.prompt) })}
             </h3>
 
-            <motion.span
+            <m.span
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.3 }}
@@ -116,23 +116,23 @@ export default function RewardPopup({ reward, duoResult, onContinue, play }) {
               }}
             >
               {t(`rarity.${reward.rarity}`)}
-            </motion.span>
+            </m.span>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
               style={{ fontSize: '24px' }}
             >
               {Array.from({ length: reward.stars }, (_, i) => (
-                <motion.span
+                <m.span
                   key={i}
                   initial={{ scale: 0, rotate: -180 }}
                   animate={{ scale: 1, rotate: 0 }}
                   transition={{ delay: 0.4 + i * 0.1 }}
                 >
                   ⭐
-                </motion.span>
+                </m.span>
               ))}
               {reward.isBonus && (
                 <span
@@ -142,9 +142,9 @@ export default function RewardPopup({ reward, duoResult, onContinue, play }) {
                   {t('reward.bonus')}
                 </span>
               )}
-            </motion.div>
+            </m.div>
 
-            <motion.button
+            <m.button
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
@@ -155,10 +155,10 @@ export default function RewardPopup({ reward, duoResult, onContinue, play }) {
               style={{ background: 'linear-gradient(135deg, var(--color-gold), var(--color-gold-dark))', marginTop: 'var(--sp-8)' }}
             >
               {t('reward.continue')}
-            </motion.button>
+            </m.button>
           </div>
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </AnimatePresence>
   );
 }

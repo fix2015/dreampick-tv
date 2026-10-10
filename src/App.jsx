@@ -1,16 +1,26 @@
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import HomeScreen from './components/HomeScreen';
-import QuestionScreen from './components/QuestionScreen';
-import EndScreen from './components/EndScreen';
-import RewardPopup from './components/RewardPopup';
-import SubscribePrompt from './components/SubscribePrompt';
 import MuteButton from './components/MuteButton';
-import PassDevice from './components/PassDevice';
 import OfflineScreen from './components/OfflineScreen';
 import { useConnectivity } from './hooks/useConnectivity';
 import { useGameState } from './hooks/useGameState';
 import { useSound } from './hooks/useSound';
 import { stopPromptVoice } from './audio/promptVoice';
+import { preloadImages, questionImagePaths, saveDataEnabled, whenIdle } from './utils/preload';
+
+// Animation-heavy screens are split out of the startup bundle and prefetched when idle
+const loadQuestionScreen = () => import('./components/QuestionScreen');
+const loadEndScreen = () => import('./components/EndScreen');
+const loadRewardPopup = () => import('./components/RewardPopup');
+const loadSubscribePrompt = () => import('./components/SubscribePrompt');
+const loadPassDevice = () => import('./components/PassDevice');
+const QuestionScreen = lazy(loadQuestionScreen);
+const EndScreen = lazy(loadEndScreen);
+const RewardPopup = lazy(loadRewardPopup);
+const SubscribePrompt = lazy(loadSubscribePrompt);
+const PassDevice = lazy(loadPassDevice);
+
+const screenFallback = <div className="dp-gradient-bg min-h-screen" />;
 
 export default function App() {
   const {
@@ -33,6 +43,7 @@ export default function App() {
     turn,
     duoResults,
     startGame,
+    preloadFirstQuestion,
     selectCard,
     passToPlayer2,
     onCountdownComplete,
@@ -44,6 +55,17 @@ export default function App() {
 
   const { play, isMuted, toggleMute, startBgm, stopBgm } = useSound();
   const { online, checking, retry } = useConnectivity();
+
+  // While the home screen shows: prefetch screen chunks and the first question's images
+  useEffect(() => {
+    if (screen !== 'home') return undefined;
+    return whenIdle(() => {
+      [loadQuestionScreen, loadRewardPopup, loadSubscribePrompt, loadPassDevice, loadEndScreen]
+        .forEach(load => load().catch(() => {}));
+      preloadImages(questionImagePaths(dailyQuestion));
+      if (!saveDataEnabled()) preloadFirstQuestion('random_mix');
+    });
+  }, [screen, dailyQuestion, preloadFirstQuestion]);
 
   // Background music: play during game, stop on other screens
   useEffect(() => {
@@ -87,12 +109,13 @@ export default function App() {
           categories={categories}
           dailyQuestion={dailyQuestion}
           onStartGame={handleStartGame}
+          onPrepareCategory={preloadFirstQuestion}
           play={play}
         />
       )}
 
       {screen === 'game' && (
-        <>
+        <Suspense fallback={screenFallback}>
           <QuestionScreen
             question={currentQuestion}
             currentIndex={currentIndex}
@@ -129,19 +152,21 @@ export default function App() {
             onDismiss={handleDismissSubscribe}
             play={play}
           />
-        </>
+        </Suspense>
       )}
 
       {screen === 'end' && (
-        <EndScreen
-          sessionItems={sessionItems}
-          duoResults={players === 2 ? duoResults : null}
-          sessionStars={sessionStars}
-          streak={streak}
-          onPlayAgain={() => { play('buttonClick'); startGame(currentCategory, players); }}
-          onGoHome={handleGoHome}
-          play={play}
-        />
+        <Suspense fallback={screenFallback}>
+          <EndScreen
+            sessionItems={sessionItems}
+            duoResults={players === 2 ? duoResults : null}
+            sessionStars={sessionStars}
+            streak={streak}
+            onPlayAgain={() => { play('buttonClick'); startGame(currentCategory, players); }}
+            onGoHome={handleGoHome}
+            play={play}
+          />
+        </Suspense>
       )}
 
       <MuteButton isMuted={isMuted} onToggle={toggleMute} />

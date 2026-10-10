@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useI18n } from '../i18n/i18n';
 
 const TIMER_DURATION = 3000;
@@ -69,7 +69,7 @@ export default function TimerBar({ isActive, onComplete, theme, play }) {
           className="flex-1 rounded-full bg-white/20 overflow-hidden border-2 border-white/40 shadow-inner"
           style={{ height: '14px' }}
         >
-          <motion.div
+          <m.div
             className="h-full rounded-full relative"
             style={{
               width: `${progress * 100}%`,
@@ -79,7 +79,7 @@ export default function TimerBar({ isActive, onComplete, theme, play }) {
             {progress > 0.7 && (
               <div className="absolute inset-0 bg-white/30 animate-pulse rounded-full" />
             )}
-          </motion.div>
+          </m.div>
         </div>
         <span style={{ fontSize: '20px' }} aria-hidden="true">✨</span>
       </div>
