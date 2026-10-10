@@ -2,18 +2,18 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { img } from '../utils/assets';
 
-export default function MysteryCard({ option, index, isSelected, isDisabled, isRevealed, onSelect, theme }) {
+export default function MysteryCard({ option, index, isSelected, isDisabled, isRevealed, onSelect }) {
   const [flipped, setFlipped] = useState(false);
   const isChosen = isSelected === index;
   const otherChosen = isSelected !== null && !isChosen;
 
   useEffect(() => {
-    if (isRevealed) {
-      const timer = setTimeout(() => setFlipped(true), 200);
-      return () => clearTimeout(timer);
-    } else {
+    if (!isRevealed) return;
+    const timer = setTimeout(() => setFlipped(true), 200);
+    return () => {
+      clearTimeout(timer);
       setFlipped(false);
-    }
+    };
   }, [isRevealed]);
 
   return (
@@ -40,7 +40,7 @@ export default function MysteryCard({ option, index, isSelected, isDisabled, isR
           {/* Number badge */}
           <div className="dp-card-badge" style={{ backgroundColor: '#FBBF24' }}>?</div>
 
-          <div className={`card-flip-inner w-full h-full ${flipped ? 'flipped' : ''}`}>
+          <div className={`card-flip-inner w-full h-full ${isRevealed && flipped ? 'flipped' : ''}`}>
             {/* Front - Mystery */}
             <div className="card-front w-full h-full">
               <div

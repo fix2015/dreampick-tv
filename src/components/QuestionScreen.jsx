@@ -28,12 +28,14 @@ export default function QuestionScreen({
   const isDisabled = phase !== 'choosing';
 
   // Play TTS voice for each new question
+  const questionId = question?.id;
+  const prompt = question?.prompt;
   useEffect(() => {
-    if (question && phase === 'choosing') {
-      playPromptVoice(question.prompt);
+    if (questionId && phase === 'choosing') {
+      playPromptVoice(prompt);
     }
     return () => stopPromptVoice();
-  }, [question?.id, phase]);
+  }, [questionId, prompt, phase]);
 
   useEffect(() => {
     if (phase === 'reveal') {

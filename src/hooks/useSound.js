@@ -37,7 +37,7 @@ export function useSound() {
   const toggleMute = useCallback(() => {
     setIsMuted(prev => {
       const next = !prev;
-      try { localStorage.setItem(MUTE_KEY, String(next)); } catch {}
+      try { localStorage.setItem(MUTE_KEY, String(next)); } catch { /* storage unavailable */ }
       return next;
     });
   }, []);

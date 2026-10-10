@@ -1,18 +1,20 @@
-import { useMemo } from 'react';
+import { useState } from 'react';
+
+function makeBlobs() {
+  return Array.from({ length: 6 }, (_, i) => ({
+    id: i,
+    size: 150 + Math.random() * 200,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    delay: Math.random() * 5,
+  }));
+}
 
 export default function BackgroundEffects({ theme }) {
-  const blobs = useMemo(() => {
-    return Array.from({ length: 6 }, (_, i) => ({
-      id: i,
-      size: 150 + Math.random() * 200,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      delay: Math.random() * 5,
-    }));
-  }, []);
+  const [blobs] = useState(makeBlobs);
 
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0 }}>
+    <div className="fixed inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0 }} aria-hidden="true">
       <div
         className="absolute inset-0 transition-colors duration-700"
         style={{ backgroundColor: theme.bg }}
