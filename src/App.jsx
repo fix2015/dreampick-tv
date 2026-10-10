@@ -15,6 +15,7 @@ export default function App() {
   const {
     screen,
     categories,
+    dailyQuestion,
     currentCategory,
     currentQuestion,
     currentIndex,
@@ -79,6 +80,7 @@ export default function App() {
       {screen === 'home' && (
         <HomeScreen
           categories={categories}
+          dailyQuestion={dailyQuestion}
           onStartGame={handleStartGame}
           play={play}
         />

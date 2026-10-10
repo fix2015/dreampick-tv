@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { loadProgress } from '../utils/storage';
+import { loadDaily, currentStreak, isDailyDone } from '../utils/daily';
+import DailyPickCard from './DailyPickCard';
 
 const CATEGORY_COLORS = {
   dream_bedroom: '#7B68EE',
@@ -15,8 +17,9 @@ const CATEGORY_COLORS = {
   random_mix: '#FF6B6B',
 };
 
-export default function HomeScreen({ categories, onStartGame }) {
+export default function HomeScreen({ categories, dailyQuestion, onStartGame }) {
   const progress = loadProgress();
+  const daily = loadDaily();
   const allCategories = [
     ...categories,
     { id: 'random_mix', name: 'Random Mix', emoji: '🎲', questionCount: 10 },
@@ -62,6 +65,13 @@ export default function HomeScreen({ categories, onStartGame }) {
           <span>💎 {progress.rareFinds} Rares</span>
         </motion.div>
       )}
+
+      <DailyPickCard
+        question={dailyQuestion}
+        streak={currentStreak(daily)}
+        done={isDailyDone(daily)}
+        onPlay={() => onStartGame('daily')}
+      />
 
       {/* Categories grid */}
       <motion.div

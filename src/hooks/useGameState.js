@@ -1,6 +1,7 @@
 import { useState, useCallback, useRef } from 'react';
 import { shuffleArray, determineRarity, getStarsForRarity } from '../utils/helpers';
 import { addCollectedItem, markGameComplete, loadProgress } from '../utils/storage';
+import { getDailyQuestion, recordDailyPlayed } from '../utils/daily';
 import gameData from '../data/questions.json';
 
 const QUESTIONS_PER_GAME = 10;
@@ -22,10 +23,13 @@ export function useGameState() {
   const questionsAnswered = useRef(0);
 
   const categories = gameData.categories;
+  const dailyQuestion = getDailyQuestion(gameData.questions);
 
   const startGame = useCallback((categoryId) => {
     let pool;
-    if (categoryId === 'random_mix') {
+    if (categoryId === 'daily') {
+      pool = [getDailyQuestion(gameData.questions)];
+    } else if (categoryId === 'random_mix') {
       pool = shuffleArray(gameData.questions);
     } else {
       pool = shuffleArray(gameData.questions.filter(q => q.categoryId === categoryId));
@@ -90,6 +94,12 @@ export function useGameState() {
     setPhase('reward');
   }, [questions, currentIndex, selectedCard]);
 
+  const finishGame = useCallback(() => {
+    markGameComplete(streak);
+    if (currentCategory === 'daily') recordDailyPlayed();
+    setScreen('end');
+  }, [streak, currentCategory]);
+
   const nextQuestion = useCallback(() => {
     questionsAnswered.current += 1;
 
@@ -100,8 +110,7 @@ export function useGameState() {
     }
 
     if (currentIndex + 1 >= questions.length) {
-      markGameComplete(streak);
-      setScreen('end');
+      finishGame();
       return;
     }
 
@@ -109,20 +118,19 @@ export function useGameState() {
     setSelectedCard(null);
     setPhase('choosing');
     setLastReward(null);
-  }, [currentIndex, questions.length, streak]);
+  }, [currentIndex, questions.length, finishGame]);
 
   const dismissSubscribe = useCallback(() => {
     setShowSubscribe(false);
     if (currentIndex + 1 >= questions.length) {
-      markGameComplete(streak);
-      setScreen('end');
+      finishGame();
       return;
     }
     setCurrentIndex(prev => prev + 1);
     setSelectedCard(null);
     setPhase('choosing');
     setLastReward(null);
-  }, [currentIndex, questions.length, streak]);
+  }, [currentIndex, questions.length, finishGame]);
 
   const goHome = useCallback(() => {
     setScreen('home');
@@ -134,6 +142,7 @@ export function useGameState() {
   return {
     screen,
     categories,
+    dailyQuestion,
     currentCategory,
     currentQuestion,
     currentIndex,
