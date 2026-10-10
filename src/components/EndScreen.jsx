@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { getRarityColor } from '../utils/helpers';
 import { img } from '../utils/assets';
 import Confetti from './Confetti';
+import YouTubeLink from './YouTubeLink';
 
 export default function EndScreen({ sessionItems, sessionStars, streak, onPlayAgain, onGoHome, play }) {
   useEffect(() => {
@@ -145,17 +146,12 @@ export default function EndScreen({ sessionItems, sessionStars, streak, onPlayAg
           >
             Try Another Category 🎮
           </motion.button>
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            href="https://www.youtube.com/@DreamPickTV?sub_confirmation=1"
-            target="_blank"
-            rel="noopener noreferrer"
+          <YouTubeLink
             className="dp-btn no-underline text-center"
             style={{ background: 'linear-gradient(135deg, var(--color-youtube), var(--color-youtube-dark))' }}
           >
             Subscribe 🔔
-          </motion.a>
+          </YouTubeLink>
         </motion.div>
       </div>
     </div>

@@ -5,6 +5,8 @@ import EndScreen from './components/EndScreen';
 import RewardPopup from './components/RewardPopup';
 import SubscribePrompt from './components/SubscribePrompt';
 import MuteButton from './components/MuteButton';
+import OfflineScreen from './components/OfflineScreen';
+import { useConnectivity } from './hooks/useConnectivity';
 import { useGameState } from './hooks/useGameState';
 import { useSound } from './hooks/useSound';
 import { stopPromptVoice } from './audio/promptVoice';
@@ -35,6 +37,7 @@ export default function App() {
   } = useGameState();
 
   const { play, isMuted, toggleMute, startBgm, stopBgm } = useSound();
+  const { online, checking, retry } = useConnectivity();
 
   // Background music: play during game, stop on other screens
   useEffect(() => {
@@ -127,6 +130,8 @@ export default function App() {
       )}
 
       <MuteButton isMuted={isMuted} onToggle={toggleMute} />
+
+      {!online && <OfflineScreen checking={checking} onRetry={retry} />}
     </div>
   );
 }

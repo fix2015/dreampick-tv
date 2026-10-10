@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { img } from '../utils/assets';
+import YouTubeLink from './YouTubeLink';
 
 export default function SubscribePrompt({ show, onDismiss, play }) {
   useEffect(() => {
@@ -54,17 +55,12 @@ export default function SubscribePrompt({ show, onDismiss, play }) {
             </p>
 
             <div className="flex flex-col w-full" style={{ gap: 'var(--sp-12)', marginTop: 'var(--sp-8)' }}>
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                href="https://www.youtube.com/@DreamPickTV?sub_confirmation=1"
-                target="_blank"
-                rel="noopener noreferrer"
+              <YouTubeLink
                 className="dp-btn w-full inline-block no-underline text-center"
                 style={{ background: 'linear-gradient(135deg, var(--color-youtube), var(--color-youtube-dark))' }}
               >
                 Subscribe 🔔
-              </motion.a>
+              </YouTubeLink>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
